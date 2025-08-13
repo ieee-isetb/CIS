@@ -2,7 +2,7 @@
 
 ## Project requirements
 <ul>
-  <li>Latest Version of [Node JS](https://nodejs.org/en)</li>
+  <li>Latest Version of <a href="https://nodejs.org/en">Node JS</a></li>
 </ul>
 
 ## How to start coding
