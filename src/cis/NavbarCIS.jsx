@@ -7,11 +7,11 @@ function NavbarCIS() {
         <img className="" src={logo} alt="Logo" />
         <nav>
             <ul>
-                <a href="#"><li>Home</li></a>
-                <a href="#"><li>About us</li></a>
-                <a href="#"><li>Statistics</li></a>
-                <a href="#"><li>Team</li></a>
-                <a href="#"><li>Contact</li></a>
+                <a href="#home"><li>Home</li></a>
+                <a href="#about"><li>About us</li></a>
+                <a href="#statistics"><li>Statistics</li></a>
+                <a href="#team"><li>Team</li></a>
+                <a href="#contact"><li>Contact</li></a>
             </ul>
         </nav>
     </div>

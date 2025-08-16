@@ -1,5 +1,6 @@
 import NavbarCIS from './cis/NavbarCIS'
 import TitleCIS from './cis/TitleCIS'
+import AboutCIS from './cis/AboutCIS'
 import './App.css'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <NavbarCIS />
       <TitleCIS />
+      <AboutCIS />
     </>
   )
 }

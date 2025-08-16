@@ -23,6 +23,7 @@
         justify-content: space-between;
         a{
             font-family: 'Arima';
+            font-weight: 400;
             padding-bottom: 2%;
             margin-left: 5%;
             &.active, &:hover {
