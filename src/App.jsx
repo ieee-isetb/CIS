@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import NavbarCIS from './cis/NavbarCIS'
+import TitleCIS from './cis/TitleCIS'
 import './App.css'
 
 function App() {
   return (
     <>
-      <div className='text-xl bg-red-400'>3aslema</div>
+      <NavbarCIS />
+      <TitleCIS />
     </>
   )
 }

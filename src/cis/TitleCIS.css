@@ -1,0 +1,9 @@
+.cis-quote::before{
+    content: "-";
+    margin-right: 0.7rem;
+}
+
+.cis-quote::after{
+    content: "-";
+    margin-left: 0.7rem;
+}
