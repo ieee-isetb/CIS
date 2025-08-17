@@ -9,7 +9,7 @@ function NavbarCIS() {
             <ul>
                 <a href="#home"><li>Home</li></a>
                 <a href="#about"><li>About us</li></a>
-                <a href="#statistics"><li>Statistics</li></a>
+                <a href="#stats"><li>Statistics</li></a>
                 <a href="#team"><li>Team</li></a>
                 <a href="#contact"><li>Contact</li></a>
             </ul>

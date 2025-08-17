@@ -1,0 +1,21 @@
+.stats_title {
+    font-family: 'Arvo';
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    align-self: start;
+}
+
+.stats_value {
+    font-family: 'Arvo';
+    border: 3px solid #ffffff;
+    border-radius: 100%;
+    padding: 23%;
+}
+
+.stats_div {
+    align-items: center;
+    justify-content: center;
+}
