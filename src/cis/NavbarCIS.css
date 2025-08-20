@@ -21,11 +21,12 @@
     ul{
         display: flex;
         justify-content: space-between;
-        a{
+        li button{
             font-family: 'Arima';
             font-weight: 400;
             padding-bottom: 2%;
             margin-left: 5%;
+            cursor: pointer;
             &.active, &:hover {
                 border-bottom: 2px solid #3EA2DC;
             }

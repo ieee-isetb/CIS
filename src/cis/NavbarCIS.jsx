@@ -1,21 +1,22 @@
 import logo from '../assets/cis_black_logo.png';
+import ScrollIntoView from 'react-scroll-into-view';
 import "./NavbarCIS.css";
 
 function NavbarCIS() {
   return (
     <div className="navbar-cis">
-        <img className="" src={logo} alt="Logo" />
-        <nav>
-            <ul>
-                <a href="#home"><li>Home</li></a>
-                <a href="#about"><li>About us</li></a>
-                <a href="#stats"><li>Statistics</li></a>
-                <a href="#team"><li>Team</li></a>
-                <a href="#contact"><li>Contact</li></a>
-            </ul>
-        </nav>
+      <img className="" src={logo} alt="Logo" />
+      <nav>
+        <ul>
+          <li><ScrollIntoView selector='#home'><button>Home</button></ScrollIntoView></li>
+          <li><ScrollIntoView selector='#about'><button className='w-[100%]'>About us</button></ScrollIntoView></li>
+          <li><ScrollIntoView selector='#stats'><button>Statistics</button></ScrollIntoView></li>
+          <li><ScrollIntoView selector='#team'><button>Team</button></ScrollIntoView></li>
+          <li><ScrollIntoView selector='#contact'><button>Contact</button></ScrollIntoView></li>
+        </ul>
+      </nav>
     </div>
-    
+
   );
 }
 

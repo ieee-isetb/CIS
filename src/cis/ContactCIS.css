@@ -1,0 +1,18 @@
+.label-feedback {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Inter';
+    font-size: 15px;
+    margin-bottom: -2px;
+}
+
+.label-feedback+input, .label-feedback+textarea {
+    color: rgba(0,0,0,0.7);
+    font-family: "Inter";
+    width: 170%;
+    &::placeholder{
+        color: #d2d2d2;
+        font-family: 'Inter';
+        font-size: 15px;
+        margin-bottom: -2px;
+    }
+}
