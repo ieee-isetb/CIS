@@ -27,8 +27,9 @@
             padding-bottom: 2%;
             margin-left: 5%;
             cursor: pointer;
+            border-bottom: 2px solid transparent;
             &.active, &:hover {
-                border-bottom: 2px solid #3EA2DC;
+                border-bottom-color: #3EA2DC;
             }
         }
     }

@@ -1,13 +1,24 @@
-import SocialsCIS from "./SocialsCIS";
+import bg from '../assets/socials_board.png'
+import discord from '../assets/socials/discord-color.svg'
+import facebook from '../assets/socials/facebook-color.svg'
+import instagram from '../assets/socials/instagram-color.svg'
+import gmail from '../assets/socials/gmail-color.svg'
 import "./ContactCIS.css";
 
-function ContactCIS(){
+const socials = {
+    instagram: "https://www.instagram.com/",
+    facebook: "https://www.facebook.com/profile.php?id=61567684887441",
+    discord: "https://discord.gg/6qZvfp8Rfy",
+    gmail: "https://mail.google.com/"
+};
+
+function ContactCIS() {
     return (
         <div id="contact" className="bg-[#3EA2DC] h-[620px] text-white overflow-y-hidden">
             <div className="text-center mt-3 pt-7 font-['Arima'] font-[600] text-5xl underline">
                 Contact us</div>
             <p className="text-center font-['Arima'] font-[400] text-4xl mt-5">
-                If you want to ask us any question, or just give us a feedback,<br/>
+                If you want to ask us any question, or just give us a feedback,<br />
                 all you have to do is fill the form below.
             </p>
             <div className="grid grid-cols-2 gap-4 justify-items-center mt-10">
@@ -24,7 +35,18 @@ function ContactCIS(){
                         </button>
                     </form>
                 </div>
-                <SocialsCIS />
+                <div id="socials" className="w-[600px] justify-self-end mr-5">
+                    <img src={bg} alt="Socials Background" className="object-cover relative" />
+                    <p className="relative bottom-[308px] p-1 left-[46.5%] bg-white w-[23%] text-center text-[12px] text-[#2294FE] underline font-['Inter']">
+                        Don't forget to follow us on our socials!
+                    </p>
+                    <div className='grid grid-cols-2 gap-y-2 gap-x-3 justify-items-center relative bottom-[300px] left-[22%] w-[110px] button-container'>
+                        <a href={socials.instagram} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={instagram} /></a>
+                        <a href={socials.facebook} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={facebook} /></a>
+                        <a href={socials.discord} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={discord} /></a>
+                        <a href={socials.gmail} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={gmail} className='w-[300px] h-[100%]' /></a>
+                    </div>
+                </div>
             </div>
         </div>
     );
