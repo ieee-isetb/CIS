@@ -32,7 +32,7 @@ function StatisticsCIS() {
                 <div className="grid grid-cols-4 gap-10 text-center -ml-5">
                     <div className="grid grid-rows-2 gap-3 stats_div">
                         <CountUp from={0} to={stats.members} duration={2} className="text-5xl font-[600] stats_value" />
-                        <span className="stats_title">Members</span>
+                        <span className="stats_title ml-1.5">Members</span>
                     </div>
                     <div className="grid grid-rows-2 gap-3 stats_div">
                         <CountUp from={0} to={stats.workshops} duration={2} className="text-5xl font-[600] stats_value" />

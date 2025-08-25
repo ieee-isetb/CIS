@@ -23,16 +23,21 @@ function ContactCIS() {
             </p>
             <div className="grid grid-cols-2 gap-4 justify-items-center mt-10">
                 <div className="justify-self-start pl-10">
-                    <form className="flex flex-col gap-2">
+                    <form className="flex flex-col gap-2 relative">
                         <label className="label-feedback">Your Name</label>
                         <input type="text" placeholder="Your Name" className="p-2 rounded-md bg-white" />
                         <label className="label-feedback">Your Email</label>
                         <input type="email" placeholder="Your Email" className="p-2 rounded-md bg-white" />
                         <label className="label-feedback">Your Message</label>
                         <textarea placeholder="Your Message" className="p-2 rounded-md h-32 bg-white"></textarea>
-                        <button type="submit" className="bg-white text-[#3EA2DC] p-2 rounded-md hover:bg-[#3EA2DC] hover:text-white transition-colors">
-                            Send Message
-                        </button>
+                        <div className='grid grid-cols-2 gap-2 absolute bottom-[-18%] w-[424px] font-["Inter"]'>
+                            <button type="submit" className="bg-white border-2 border-transparent text-[#3EA2DC] p-2 rounded-md hover:bg-[#3EA2DC] hover:border-white hover:text-white transition-colors underline cursor-pointer">
+                                Send Message
+                            </button>
+                            <button type="reset" className="bg-white border-2 border-transparent text-[#3EA2DC] p-2 rounded-md hover:bg-[#3EA2DC] hover:border-white hover:text-white transition-colors underline cursor-pointer">
+                                Reset
+                            </button>
+                        </div>
                     </form>
                 </div>
                 <div id="socials" className="w-[600px] justify-self-end mr-5">
