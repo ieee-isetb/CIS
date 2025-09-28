@@ -29,7 +29,7 @@ function ContactCIS() {
                         <label className="label-feedback">Your Email</label>
                         <input type="email" placeholder="Your Email" className="p-2 rounded-md bg-white" />
                         <label className="label-feedback">Your Message</label>
-                        <textarea placeholder="Your Message" className="p-2 rounded-md h-32 bg-white"></textarea>
+                        <textarea placeholder="Your Message" className="p-2 rounded-md h-32 bg-white resize-none"></textarea>
                         <div className='grid grid-cols-2 gap-2 absolute bottom-[-18%] w-[424px] font-["Inter"]'>
                             <button type="submit" className="bg-white border-2 border-transparent text-[#3EA2DC] p-2 rounded-md hover:bg-[#3EA2DC] hover:border-white hover:text-white transition-colors underline cursor-pointer">
                                 Send Message
