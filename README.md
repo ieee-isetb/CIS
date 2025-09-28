@@ -1,4 +1,4 @@
-# IEEE Iset Bizerte Website
+# Computational Intelligence Society - IEEE ISET Bizerte SBC Website
 
 ## Project requirements
 <ul>
