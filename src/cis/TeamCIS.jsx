@@ -14,7 +14,7 @@ function TeamCis() {
             "facebook": "https://www.facebook.com/mohamedyassine.zorgui",
             "linkedin": "https://www.linkedin.com/in/mohamed-yassine-zorgui-849211294/",
             "ieee_email": "Zorguimohamedyassine@ieee.org",
-            "photo": "/team/yassine_zorgui.jpeg"
+            "photo": "/CIS/team/yassine_zorgui.jpeg"
         },
         {
             "role": "General Secretary",
@@ -23,7 +23,7 @@ function TeamCis() {
             "facebook": "https://www.facebook.com/all4n1",
             "linkedin": "https://www.linkedin.com/in/allani-mohamed-570952366/",
             "ieee_email": "allani_mohamed@ieee.org",
-            "photo": "/team/allani_mohamed.png"
+            "photo": "/CIS/team/allani_mohamed.png"
         },
         {
             "role": "HR Manager",
@@ -32,7 +32,7 @@ function TeamCis() {
             "facebook": "https://www.facebook.com/tasnim.benbelhassen.2025",
             "linkedin": "https://www.linkedin.com/in/tasnim-benbelhassen-25b459353/",
             "ieee_email": "tasnim.bbelhassen@ieee.org",
-            "photo": "/team/tasnim_belhassen.jpeg"
+            "photo": "/CIS/team/tasnim_belhassen.jpeg"
         },
         {
             "role": "Treasurer",
@@ -41,7 +41,7 @@ function TeamCis() {
             "facebook": "https://www.instagram.com/louay.mhouachi/",
             "linkedin": "",
             "ieee_email": "louay.mhouachi@ieee.org",
-            "photo": "/team/louay_mhouachi.png"
+            "photo": "/CIS/team/louay_mhouachi.png"
         }
     ]
 
@@ -49,7 +49,7 @@ function TeamCis() {
         <div id='team'>
             <div className="text-center mt-7 mb-9 font-['Arima'] font-[600] text-5xl underline text-[#3EA2DC]">
                 Our Team</div>
-            <div className="grid grid-cols-2 gap-4 justify-items-center">
+            <div className="grid grid-cols-2 gap-4 sm:p-0 p-1 justify-items-center">
                 {teamMembers.map((item) => (
                     <PixelHoverCard key={item.name}
                         firstContent={
@@ -65,8 +65,8 @@ function TeamCis() {
                                     backgroundColor: "#3EA2DC92"
                                 }}
                             >
-                                <p className='font-[600] text-3xl absolute top-5 font-["Arima"]'>{item.name}</p>
-                                <p className='font-[600] text-2xl absolute top-15 font-["Arima"]'>{item.role}</p>
+                                <p className='font-[600] sm:text-2xl text-xl absolute top-5 font-["Arima"] '>{item.name}</p>
+                                <p className='font-[600] text-xl absolute top-15 font-["Arima"]'>{item.role}</p>
                                 <div className='self-end flex flex-wrap justify-center gap-6 right-1/5 mb-5'>
                                     {item.instagram && item.instagram !== '' && <a className='pointer-events-auto' href={item.instagram}><img src={instagram_icon} alt="Instagram" className='w-8 h-8 relative top-[-3px]' /></a>}
                                     {item.facebook && item.facebook !== '' && <a className='pointer-events-auto' href={item.facebook}><img src={facebook_icon} alt="Facebook" className='w-6 h-6' /></a>}

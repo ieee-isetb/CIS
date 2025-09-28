@@ -34,3 +34,25 @@
         }
     }
 }
+
+@media screen and (max-width: 640px) {
+    .navbar-cis {
+        height: 10vh;
+        grid-template-columns: 30% 70%;
+    }
+    .navbar-cis img {
+        margin-left: 5%;
+        width: 80%;
+        height: 50%;
+    }
+    .navbar-cis nav {
+        width: 80%;
+        margin-right: 4%;
+        ul{
+            li button{
+                font-size: 12px;
+                margin-left: 5%;
+            }
+        }
+    }
+}

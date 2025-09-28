@@ -2,3 +2,14 @@
     opacity: 0;
     transition: opacity 0.2s;
 }
+
+@media screen and (max-width: 640px) {
+    .description-container {
+        p{
+            width: 100vw;
+            text-align: center;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+    }
+}

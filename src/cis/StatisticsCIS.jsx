@@ -11,7 +11,7 @@ const stats = {
 
 function StatisticsCIS() {
     return (
-        <div id="stats" className="w-[100%] h-[400px] relative bg-[#102c3c] overflow-hidden">
+        <div id="stats" className="w-[100%] h-[400px] relative bg-[#102c3c] overflow-hidden z-10">
             <LightRays
                 raysOrigin="top-center"
                 raysColor="#3EA2DC"
@@ -28,7 +28,7 @@ function StatisticsCIS() {
             <p className="text-center text-5xl font-[600] underline z-[5] absolute top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] text-white font-['Arima']">
                 Statistics
             </p>
-            <div className="absolute top-[75%] w-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[5]">
+            <div className="absolute top-[75%] w-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[5] sm:block hidden">
                 <div className="grid grid-cols-4 gap-10 text-center -ml-5">
                     <div className="grid grid-rows-2 gap-3 stats_div">
                         <CountUp from={0} to={stats.members} duration={2} className="text-5xl font-[600] stats_value" />
@@ -45,6 +45,22 @@ function StatisticsCIS() {
                     <div className="grid grid-rows-2 gap-3 stats_div">
                         <CountUp from={2019} to={stats.foundation} duration={2} className="text-5xl font-[600] stats_value" />
                         <span className="stats_title ml-10">Foundation</span>
+                    </div>
+                </div>
+            </div>
+            <div className="absolute top-[60%] w-[100%] transform -translate-y-1/2 text-white z-[5] sm:hidden block">
+                <div className="text-3xl grid-cols-2 gap-2 grid w-[100vw] px-7">
+                    <div className="grid grid-rows-4 gap-2">
+                        <span className="">Members&nbsp;&nbsp;&nbsp;</span>
+                        <span className="">Workshops</span>
+                        <span className="">Bootcamps</span>
+                        <span className="">Foundation</span>
+                    </div>
+                    <div className="grid grid-rows-4 justify-start gap-2" dir="rtl">
+                        <CountUp from={0} to={stats.members} duration={2} className="font-[600]" />
+                        <CountUp from={0} to={stats.workshops} duration={2} className="font-[600]" />
+                        <CountUp from={0} to={stats.bootcamps} duration={2} className="font-[600]" />
+                        <CountUp from={2019} to={stats.foundation} duration={2} className="font-[600]" />
                     </div>
                 </div>
             </div>

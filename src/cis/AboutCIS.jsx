@@ -21,7 +21,7 @@ function AboutCIS() {
             <div className="text-center mt-7 mb-9 font-['Arima'] font-[600] text-5xl underline text-[#3EA2DC]">
                 About us</div>
             <div className='grid grid-cols-2 items-center'>
-                <div className="cursor-pointer relative w-[50%] justify-self-center"
+                <div className="cursor-pointer relative w-[50%] justify-self-center sm:block hidden"
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
                     style={{ minHeight: '200px' }}
@@ -51,7 +51,7 @@ function AboutCIS() {
                         </span>
                     ))}
                 </div>
-                <div className="font-['Arima'] ml-3">
+                <div className="font-['Arima'] sm:ml-3 description-container">
                     <p className='font-normal text-2xl mt-2 text-["Arya"]'>IEEE <b className='font-semibold text-[#3EA2DC]'>CIS</b> ISET Bizerte SBC</p>
                     <p className='text-justify w-[70%] mt-5 text-[#666]'>
                         The Computational Intelligence Society (CIS) chapter at ISET
