@@ -26,7 +26,7 @@ function AboutCIS() {
                     onMouseLeave={() => setHovered(false)}
                     style={{ minHeight: '200px' }}
                 >
-                    <div className='absolute z-[5] bg-white left-[30%] top-[13%] px-[25%] py-[17%]'></div>
+                    <div className='absolute z-[5] left-[30%] top-[13%] px-[25%] py-[17%]'></div>
                     <img className="absolute z-10 w-[90%]" src={cis} alt="CIS Logo" />
                     {emojis.map((emoji, i) => (
                         <span
