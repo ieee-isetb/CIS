@@ -31,20 +31,20 @@ function StatisticsCIS() {
             <div className="absolute top-[75%] w-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[5] sm:block hidden">
                 <div className="grid grid-cols-4 gap-10 text-center -ml-5">
                     <div className="grid grid-rows-2 gap-3 stats_div">
-                        <CountUp from={0} to={stats.members} duration={2} className="text-5xl font-[600] stats_value" />
+                        <CountUp from={0} to={stats.members} duration={2} className="text-5xl font-[600] stats_value p-[23%]" />
                         <span className="stats_title ml-1.5">Members</span>
                     </div>
                     <div className="grid grid-rows-2 gap-3 stats_div">
-                        <CountUp from={0} to={stats.workshops} duration={2} className="text-5xl font-[600] stats_value" />
+                        <CountUp from={0} to={stats.workshops} duration={2} className="text-5xl font-[600] stats_value p-[23%]" />
                         <span className="stats_title">Workshops</span>
                     </div>
                     <div className="grid grid-rows-2 gap-3 stats_div">
-                        <CountUp from={0} to={stats.bootcamps} duration={2} className="text-5xl font-[600] stats_value" />
+                        <CountUp from={0} to={stats.bootcamps} duration={2} className="text-5xl font-[600] stats_value p-[23%]" />
                         <span className="stats_title">Bootcamps</span>
                     </div>
                     <div className="grid grid-rows-2 gap-3 stats_div">
-                        <CountUp from={2019} to={stats.foundation} duration={2} className="text-5xl font-[600] stats_value" />
-                        <span className="stats_title ml-10">Foundation</span>
+                        <CountUp from={2019} to={stats.foundation} duration={2} className="text-5xl font-[600] stats_value py-[15%] pl-3 pr-[10px]" />
+                        <span className="stats_title">Foundation</span>
                     </div>
                 </div>
             </div>
