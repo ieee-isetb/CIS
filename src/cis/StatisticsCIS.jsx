@@ -6,8 +6,8 @@ const stats = {
     members: 20,
     workshops: 5,
     bootcamps: 2,
-    foundation: 2024
-}
+    foundation: 2025 //this year must not be changed
+} // these are the statistics of CIS ISET Bizerte SBC
 
 function StatisticsCIS() {
     return (
@@ -51,7 +51,7 @@ function StatisticsCIS() {
             <div className="absolute top-[60%] w-[100%] transform -translate-y-1/2 text-white z-[5] sm:hidden block">
                 <div className="text-3xl grid-cols-2 gap-2 grid w-[100vw] px-7">
                     <div className="grid grid-rows-4 gap-2">
-                        <span className="">Members&nbsp;&nbsp;&nbsp;</span>
+                        <span className="">Members</span>
                         <span className="">Workshops</span>
                         <span className="">Bootcamps</span>
                         <span className="">Foundation</span>

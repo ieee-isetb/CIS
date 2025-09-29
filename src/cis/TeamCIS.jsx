@@ -44,12 +44,14 @@ function TeamCis() {
             "photo": "/CIS/team/louay_mhouachi.png"
         }
     ]
+    // this is the team members data of CIS ISET Bizerte SBC
+    // images must be placed in the public/team folder and the path must be like this : /CIS/team/your_image.png
 
     return (
         <div id='team'>
             <div className="text-center mt-7 mb-9 font-['Arima'] font-[600] text-5xl underline text-[#3EA2DC]">
                 Our Team</div>
-            <div className="grid grid-cols-2 gap-4 sm:p-0 p-1 justify-items-center">
+            <div className="grid grid-cols-2 gap-4 sm:p-0 p-2 justify-items-center">
                 {teamMembers.map((item) => (
                     <PixelHoverCard key={item.name}
                         firstContent={
@@ -65,8 +67,8 @@ function TeamCis() {
                                     backgroundColor: "#3EA2DC92"
                                 }}
                             >
-                                <p className='font-[600] sm:text-2xl text-xl absolute top-5 font-["Arima"] '>{item.name}</p>
-                                <p className='font-[600] text-xl absolute top-15 font-["Arima"]'>{item.role}</p>
+                                <p className='font-[600] sm:text-3xl text-xl absolute top-5 font-["Arima"] '>{item.name}</p>
+                                <p className='font-[600] sm:text-2xl text-xl absolute top-15 font-["Arima"]'>{item.role}</p>
                                 <div className='self-end flex flex-wrap justify-center gap-6 right-1/5 mb-5'>
                                     {item.instagram && item.instagram !== '' && <a className='pointer-events-auto' href={item.instagram}><img src={instagram_icon} alt="Instagram" className='w-8 h-8 relative top-[-3px]' /></a>}
                                     {item.facebook && item.facebook !== '' && <a className='pointer-events-auto' href={item.facebook}><img src={facebook_icon} alt="Facebook" className='w-6 h-6' /></a>}

@@ -9,8 +9,8 @@ const socials = {
     instagram: "https://www.instagram.com/",
     facebook: "https://www.facebook.com/profile.php?id=61567684887441",
     discord: "https://discord.gg/6qZvfp8Rfy",
-    gmail: "https://mail.google.com/"
-};
+    gmail: "cisofficiel@gmail.com"
+}; // these are the social media links of CIS ISET Bizerte SBC
 
 function ContactCIS() {
     return (
@@ -49,7 +49,7 @@ function ContactCIS() {
                         <a href={socials.instagram} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={instagram} /></a>
                         <a href={socials.facebook} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={facebook} /></a>
                         <a href={socials.discord} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={discord} /></a>
-                        <a href={socials.gmail} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={gmail} className='w-[300px] h-[100%]' /></a>
+                        <a href={`mailto:${socials.gmail}`} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={gmail} className='w-[300px] h-[100%]' /></a>
                     </div>
                 </div>
             </div>

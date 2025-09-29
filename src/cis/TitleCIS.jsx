@@ -6,7 +6,7 @@ import { useState } from "react";
 function TitleCIS(){
     const [quoteType, setQuoteType] = useState(false);
     const [joinUs, setJoinUs] = useState(false);
-    const regitrationFormURL = ""
+    const registrationFormURL = "https://forms.gle/8toQ46baTj2yQh9b9"; // Replace with your actual registration form URL
     return (
         <div id="home" className="w-[100%] h-[500px] relative">
             <Silk
@@ -36,7 +36,7 @@ function TitleCIS(){
              />
         </p> )}
         {joinUs && (
-            <a href={regitrationFormURL} target="_blank" rel="noopener noreferrer" className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:bg-transparent text-white font-['Arima'] font-bold text-xl px-5 py-2 rounded-full bg-[#3ea2dcb8] hover:bg-[#3ea2dcb8] border-white border-2 transition-colors cursor-pointer">
+            <a href={registrationFormURL} target="_blank" rel="noopener noreferrer" className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:bg-transparent text-white font-['Arima'] font-bold text-xl px-5 py-2 rounded-full bg-[#3ea2dcb8] hover:bg-[#3ea2dcb8] border-white border-2 transition-colors cursor-pointer">
                 Join Us
             </a>
         )}
