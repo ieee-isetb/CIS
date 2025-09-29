@@ -69,7 +69,7 @@ function TeamCis() {
                             >
                                 <p className='font-[600] sm:text-3xl text-xl absolute top-5 font-["Arima"] text-center'>{item.name}</p>
                                 <p className='font-[600] sm:text-2xl text-xl absolute top-15 font-["Arima"] text-center'>{item.role}</p>
-                                <div className='self-end flex flex-wrap justify-center gap-6 right-1/5 mb-5'>
+                                <div className='self-end flex flex-wrap justify-center sm:gap-6 gap-2 right-1/5 mb-5'>
                                     {item.instagram && item.instagram !== '' && <a className='pointer-events-auto' href={item.instagram}><img src={instagram_icon} alt="Instagram" className='w-8 h-8 relative top-[-3px]' /></a>}
                                     {item.facebook && item.facebook !== '' && <a className='pointer-events-auto' href={item.facebook}><img src={facebook_icon} alt="Facebook" className='w-6 h-6' /></a>}
                                     {item.linkedin && item.linkedin !== '' && <a className='pointer-events-auto' href={item.linkedin}><img src={linkedin_icon} alt="LinkedIn" className='w-6 h-6' /></a>}
