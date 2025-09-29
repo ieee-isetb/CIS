@@ -2,7 +2,10 @@
     width: 100%;
     height: 12vh;
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 10% auto;
+    align-items: center;
+    background-color: white;
+    padding: 0 5%;
 }
 
 .navbar-cis img {
@@ -17,42 +20,95 @@
     justify-self: end;
     align-self: center;
     margin-right: 5%;
-    width: 30%;
-    ul{
-        display: flex;
-        justify-content: space-between;
-        li button{
-            font-family: 'Arima';
-            font-weight: 400;
-            padding-bottom: 2%;
-            margin-left: 5%;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            &.active, &:hover {
-                border-bottom-color: #3EA2DC;
-            }
-        }
-    }
+    width: auto; /* allow nav items to take space dynamically */
 }
 
+.navbar-cis nav ul {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* spacing between nav items */
+}
+
+.navbar-cis nav ul li button {
+    font-family: 'Arima';
+    font-weight: 400;
+    font-size: 16px;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 4px 0;  /* space for underline */
+    border-bottom: 2px solid transparent; /* reserve space */
+    transition: border-bottom-color 0.2s ease;
+}
+
+.navbar-cis nav ul li button.active,
+.navbar-cis nav ul li button:hover {
+    border-bottom-color: #3EA2DC; /* blue underline */
+}
+
+.nav-logo {
+  height: 6vh;   /* scales with screen height */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Dark mode global styles */
+body.dark {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+/* Make navbar adapt to dark mode */
+body.dark .navbar-cis {
+    background-color: #1e1e1e;
+}
+
+/* Dark mode toggle button */
+.dark-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    
+}
+
+/* Make SVG inherit text color */
+.dark-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #333; /* visible in light mode */
+}
+
+body.dark .dark-toggle-btn svg {
+    fill: #f1f1f1; /* visible in dark mode */
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 640px) {
     .navbar-cis {
         height: 10vh;
-        grid-template-columns: 30% 70%;
+        grid-template-columns: 30% auto;
+        padding: 0 3%;
     }
+
     .navbar-cis img {
         margin-left: 5%;
         width: 80%;
         height: 50%;
     }
-    .navbar-cis nav {
-        width: 80%;
-        margin-right: 4%;
-        ul{
-            li button{
-                font-size: 12px;
-                margin-left: 5%;
-            }
-        }
+
+    .navbar-cis nav ul {
+        gap: 12px; /* reduce spacing on mobile */
+    }
+
+    .navbar-cis nav ul li button {
+        font-size: 12px;
     }
 }
