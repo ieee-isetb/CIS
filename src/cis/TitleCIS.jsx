@@ -18,8 +18,8 @@ function TitleCIS(){
             />
         <p className="text-white font-['Times_New_Roman'] text-center text-4xl font-bold absolute sm:top-1/4 top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%]">
             <ReactTyped
-             strings={["IEEE Computational Intelligence Society Chapter<br />ISET Bizerte STUDENT BRANCH Chapter"]}
-             typeSpeed={40}
+             strings={["IEEE Computational Intelligence Society<br />ISETB Student Branch Chapter"]}
+             typeSpeed={50}
              cursorChar="_"
              showCursor={true}
              onComplete={(self) => {setQuoteType(true), self.cursor.remove()}}
@@ -29,7 +29,7 @@ function TitleCIS(){
         <p className="cis-quote text-white font-['Times_New_Roman'] text-center text-2xl absolute sm:top-1/2 top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%]">
             <ReactTyped
              strings={["Where Intelligence Meets Innovation"]}
-             typeSpeed={40}
+             typeSpeed={50}
              cursorChar="_"
              showCursor={false}
              onComplete={() => {setJoinUs(true)}}
