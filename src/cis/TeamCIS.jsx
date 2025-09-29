@@ -51,7 +51,7 @@ function TeamCis() {
         <div id='team'>
             <div className="text-center mt-7 mb-9 font-['Arima'] font-[600] text-5xl underline text-[#3EA2DC]">
                 Our Team</div>
-            <div className="grid grid-cols-2 gap-4 sm:p-0 p-2 justify-items-center">
+            <div className="flex flex-wrap justify-center gap-5 sm:p-0 p-2">
                 {teamMembers.map((item) => (
                     <PixelHoverCard key={item.name}
                         firstContent={
