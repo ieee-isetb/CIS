@@ -1,11 +1,22 @@
-import cis from '../assets/cis_blue_logo.png';
-import { useState } from 'react';
+import cis_light from '../assets/cis_black_logo.png';
+import cis_dark from '../assets/cis_white_logo.png';
+import { useState, useEffect } from 'react';
 import './AboutCIS.css';
 
 const emojis = ['🔬', '🤖', '✨', '🧠', '🚀', '💻', '🧪'];
 
 function AboutCIS() {
     const [hovered, setHovered] = useState(false);
+    const [darkMode, setDarkMode] = useState(document.body.classList.contains("dark"));
+
+    // Listen for changes to the "dark" class on body
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            setDarkMode(document.body.classList.contains("dark"));
+        });
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+        return () => observer.disconnect();
+    }, []);
 
     // Calculate burst positions (angles and distances)
     const burstPositions = emojis.map((_, i) => {
@@ -27,7 +38,7 @@ function AboutCIS() {
                     style={{ minHeight: '200px' }}
                 >
                     <div className='absolute z-[5] left-[30%] top-[13%] px-[25%] py-[17%]'></div>
-                    <img className="absolute z-10 w-[90%]" src={cis} alt="CIS Logo" />
+                    <img className="absolute z-10 w-[70%] ml-10 mt-5" src={darkMode ? cis_dark : cis_light} alt="CIS Logo" />
                     {emojis.map((emoji, i) => (
                         <span
                             key={i}

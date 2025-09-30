@@ -14,7 +14,7 @@ const socials = {
 
 function ContactCIS() {
     return (
-        <div id="contact" className="bg-[#3EA2DC] sm:h-[620px] h-[950px] text-white overflow-y-hidden">
+        <div id="contact" className="bg-[#3EA2DC] sm:h-[620px] h-[950px] text-white overflow-y-hidden" style={{ overflowX: 'hidden' }}>
             <div className="text-center mt-3 pt-7 font-['Arima'] font-[600] text-5xl underline">
                 Contact us</div>
             <p className="text-center font-['Arima'] font-[400] sm:text-4xl sm:px-0 px-2 text-2xl mt-5">

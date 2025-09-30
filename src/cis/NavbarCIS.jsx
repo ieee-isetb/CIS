@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logoDark from '../assets/cis_blue_logo.png'
+import logoDark from '../assets/cis_white_logo.png'
 import logoLight from '../assets/cis_black_logo.png';
 import ScrollIntoView from 'react-scroll-into-view';
 import "./NavbarCIS.css";
