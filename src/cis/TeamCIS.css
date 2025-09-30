@@ -3,3 +3,7 @@
     border: 3px solid #102c3c;
     cursor: help;
 }
+
+body.dark .profile_card{
+    border: 3px solid #f1f1f1;
+}

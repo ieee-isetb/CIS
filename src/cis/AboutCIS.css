@@ -17,3 +17,7 @@
 body.dark .dark_about_cis {
     color: #aaa;
 }
+
+body.dark .about-logo {
+    filter: invert(1);
+}

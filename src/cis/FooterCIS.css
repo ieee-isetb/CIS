@@ -1,0 +1,9 @@
+body.dark #footer div {
+    background-color: #1e1e1e;
+    p{
+        color: #f1f1f1 !important;
+    }
+    img{
+        filter: brightness(150%);
+    }
+}
