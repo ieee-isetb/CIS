@@ -5,6 +5,10 @@
     grid-template-columns: 10% auto;
     align-items: center;
     background-color: white;
+    padding: 0 5%;
+    position: static;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 /* Handle scroll offset for navigation */
@@ -20,10 +24,7 @@ body.has-fixed-nav {
 @media screen and (max-width: 640px) {
     .navbar-cis {
         height: 10vh;
-        padding: 0 5%;
-        position: static;
-        z-index: 1000;
-        transition: all 0.3s ease;
+        grid-template-columns: 30% auto;
     }
 }
 
@@ -31,9 +32,11 @@ body.has-fixed-nav {
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     height: 10vh;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.95);
+    padding: 0 5%;
 }
 
 body.dark .navbar-scrolled {
