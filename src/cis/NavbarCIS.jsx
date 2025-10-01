@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logoDark from '../assets/cis_white_logo.png'
 import logoLight from '../assets/cis_black_logo.png';
 import ScrollIntoView from 'react-scroll-into-view';
@@ -21,6 +21,24 @@ const SunIcon = () => (
 
 function NavbarCIS() {
   const [darkMode, setDarkMode] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const registrationFormURL = "https://forms.gle/8toQ46baTj2yQh9b9";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+        document.body.classList.toggle('has-fixed-nav', isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.classList.remove('has-fixed-nav');
+    };
+  }, [scrolled]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -28,10 +46,10 @@ function NavbarCIS() {
   };
 
   return (
-    <div className="navbar-cis">
+    <div className={`navbar-cis ${scrolled ? 'navbar-scrolled' : ''}`}>
       <img src={darkMode ? logoDark : logoLight} alt="Logo" className="nav-logo"/>
       <nav>
-        <ul>
+        <ul className="nav-links">
           <li><ScrollIntoView selector='#home'><button>Home</button></ScrollIntoView></li>
           <li><ScrollIntoView selector='#about'><button>About us</button></ScrollIntoView></li>
           <li><ScrollIntoView selector='#stats'><button>Statistics</button></ScrollIntoView></li>
@@ -45,6 +63,14 @@ function NavbarCIS() {
             </button>
           </li>
         </ul>
+
+        {/* Join Us Button - Separate from main navigation */}
+        <a href={registrationFormURL} 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className="join-us-btn">
+          Join Us
+        </a>
       </nav>
     </div>
   );

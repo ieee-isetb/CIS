@@ -5,7 +5,40 @@
     grid-template-columns: 10% auto;
     align-items: center;
     background-color: white;
-    padding: 0 5%;
+}
+
+/* Handle scroll offset for navigation */
+[id] {
+    scroll-margin-top: 10vh;
+}
+
+/* Add spacing only when navbar is fixed */
+body.has-fixed-nav {
+    padding-top: 10vh;
+}
+
+@media screen and (max-width: 640px) {
+    .navbar-cis {
+        height: 10vh;
+        padding: 0 5%;
+        position: static;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+}
+
+.navbar-scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10vh;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+body.dark .navbar-scrolled {
+    background-color: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-cis img {
@@ -13,19 +46,55 @@
     height: 100%;
     justify-self: start;
     align-self: center;
+    transition: all 0.3s ease;
 }
 
 .navbar-cis nav {
     justify-self: end;
     align-self: center;
     margin-right: 5%;
-    width: auto; /* allow nav items to take space dynamically */
-}
-
-.navbar-cis nav ul {
+    width: auto;
     display: flex;
     align-items: center;
-    gap: 24px; /* spacing between nav items */
+    gap: 24px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Join Us Button Styles */
+.join-us-btn {
+    font-family: 'Arima';
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background-color: #3EA2DC;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    white-space: nowrap;
+}
+
+.join-us-btn:hover {
+    background-color: transparent;
+    border-color: #3EA2DC;
+    color: #3EA2DC;
+}
+
+body.dark .join-us-btn {
+    background-color: #3EA2DC;
+    color: white;
+}
+
+body.dark .join-us-btn:hover {
+    background-color: transparent;
+    border-color: #3EA2DC;
+    color: #3EA2DC;
 }
 
 .navbar-cis nav ul li button {
@@ -90,11 +159,26 @@ body.dark .dark-toggle-btn svg {
 }
 
 /* Responsive adjustments */
+/* Handle scroll offset for navigation */
+main, section, [id] {
+    scroll-margin-top: 10vh;
+}
+
+/* Ensure proper spacing when navbar becomes fixed */
+.navbar-scrolled + #home {
+    margin-top: 12vh;
+}
+
 @media screen and (max-width: 640px) {
+    .navbar-scrolled + #home {
+        margin-top: 10vh;
+    }
+
     .navbar-cis {
         height: 10vh;
-        grid-template-columns: 30% auto;
+        grid-template-columns: auto 1fr auto;
         padding: 0 3%;
+        gap: 10px;
     }
 
     .navbar-cis img {
@@ -103,11 +187,31 @@ body.dark .dark-toggle-btn svg {
         height: 50%;
     }
 
-    .navbar-cis nav ul {
-        gap: 12px; /* reduce spacing on mobile */
+    .navbar-cis nav {
+        margin-right: 0;
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 8px;
     }
 
     .navbar-cis nav ul li button {
         font-size: 12px;
+        padding: 4px 6px;
+    }
+
+    .join-us-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    body.dark .join-us-btn {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
     }
 }

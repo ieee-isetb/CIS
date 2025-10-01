@@ -4,13 +4,42 @@ import "./FooterCIS.css";
 function FooterCIS() {
     return (
         <div id="footer">
-            <div className="h-[120px] sm:grid grid-cols-2 bg-white p-1 overflow-y-hidden hidden">
-                <p className="font-['Inter'] sm:mt-0 mt-3 sm:text-4xl text-[15px] text-[rgba(0,0,0,0.5)] sm:p-8 py-2 pl-1 align-self-center">IEEE ISET BIZERTE SB 2025</p>
-                <img src={sb_logo} alt="IEEE ISET BIZERTE Logo" className="sm:h-[40%] mt-3 sm:justify-self-end content-end sm:p-6 sm:-mt-[19px]" />
+            {/* Desktop Footer */}
+            <div className="h-auto sm:flex flex-col bg-white p-4 overflow-hidden hidden">
+                <div className="flex justify-between items-center border-b border-gray-200 pb-4">
+                    <div className="flex flex-col">
+                        <p className="font-['Inter'] text-2xl text-[rgba(0,0,0,0.7)]">
+                            © IEEE ISET BIZERTE SB 2025
+                        </p>
+                        <p className="font-['Inter'] text-sm text-[rgba(0,0,0,0.5)] mt-2 max-w-2xl">
+                            All rights reserved. IEEE and the IEEE logo are registered trademarks of The Institute of Electrical and Electronics Engineers, Inc.
+                        </p>
+                    </div>
+                    <img 
+                        src={sb_logo} 
+                        alt="IEEE ISET BIZERTE Logo" 
+                        className="h-16 object-contain"
+                    />
+                </div>
             </div>
-            <div className="h-[150px] grid grid-rows-2 bg-white p-1 overflow-y-hidden sm:hidden">
-                <img src={sb_logo} alt="IEEE ISET BIZERTE Logo" className="h-[100px] mt-1 justify-self-center align-self-center" />
-                <p className="font-['Inter'] mt-9 text-xl text-center text-[rgba(0,0,0,0.5)]">IEEE ISET BIZERTE SB 2025</p>
+
+            {/* Mobile Footer */}
+            <div className="h-auto flex flex-col bg-white p-4 overflow-hidden sm:hidden">
+                <div className="flex flex-col items-center space-y-4">
+                    <img 
+                        src={sb_logo} 
+                        alt="IEEE ISET BIZERTE Logo" 
+                        className="h-16 object-contain"
+                    />
+                    <div className="text-center">
+                        <p className="font-['Inter'] text-xl text-[rgba(0,0,0,0.7)]">
+                            © IEEE ISET BIZERTE SB 2025
+                        </p>
+                        <p className="font-['Inter'] text-xs text-[rgba(0,0,0,0.5)] mt-2 px-4">
+                            All rights reserved. IEEE and the IEEE logo are registered trademarks of The Institute of Electrical and Electronics Engineers, Inc.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     );
