@@ -17,7 +17,7 @@ function TeamCis() {
             "photo": "/CIS/team/yassine_zorgui.jpeg"
         },
         {
-            "role": "General Secretary",
+            "role": "Vice Chair",
             "name": "Allani Mohamed",
             "instagram": "https://www.instagram.com/all4n1_/",
             "facebook": "https://www.facebook.com/all4n1",
