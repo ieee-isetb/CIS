@@ -2,42 +2,54 @@
 
 @font-face {
     font-family: "Arima";
-    src: url("fonts/ArimaKoshi-Regular.otf") format("opentype");
+    src: url("fonts/ArimaKoshi-Regular.woff2") format("woff2"),
+         url("fonts/ArimaKoshi-Regular.woff") format("woff"),
+         url("fonts/ArimaKoshi-Regular.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Arima-Semibold";
-    src: url("fonts/ArimaKoshi-Semibold.otf") format("opentype");
+    src: url("fonts/ArimaKoshi-Semibold.woff2") format("woff2"),
+         url("fonts/ArimaKoshi-Semibold.woff") format("woff"),
+         url("fonts/ArimaKoshi-Semibold.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Arima-Bold";
-    src: url("fonts/ArimaKoshi-Bold.otf") format("opentype");
+    src: url("fonts/ArimaKoshi-Bold.woff2") format("woff2"),
+         url("fonts/ArimaKoshi-Bold.woff") format("woff"),
+         url("fonts/ArimaKoshi-Bold.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Arya";
-    src: url("fonts/Arya-Regular.otf") format("opentype");
+    src: url("fonts/Arya-Regular.woff2") format("woff2"),
+         url("fonts/Arya-Regular.woff") format("woff"),
+         url("fonts/Arya-Regular.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Arvo";
-    src: url("fonts/Arvo-Regular.ttf") format("truetype");
+    src: url("fonts/Arvo-Regular.woff2") format("woff2"),
+         url("fonts/Arvo-Regular.woff") format("woff"),
+         url("fonts/Arvo-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Inter";
-    src: url("fonts/Inter-Regular.otf") format("opentype");
+    src: url("fonts/Inter-Regular.woff2") format("woff2"),
+         url("fonts/Inter-Regular.woff") format("woff"),
+         url("fonts/Inter-Regular.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
 }
