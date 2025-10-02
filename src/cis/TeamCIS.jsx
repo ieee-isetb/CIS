@@ -49,7 +49,7 @@ function TeamCis() {
 
     return (
         <div id='team'>
-            <div className="text-center mt-7 mb-9 font-['Arima-Semibold'] text-5xl underline text-[#3EA2DC]">
+            <div className="text-center mt-7 mb-9 font-['Arima'] font-semibold text-5xl underline text-[#3EA2DC]">
                 Our Team</div>
             <div className="flex flex-wrap justify-center gap-5 sm:p-0 p-2">
                 {teamMembers.map((item) => (
@@ -67,8 +67,8 @@ function TeamCis() {
                                     backgroundColor: "#3EA2DC92"
                                 }}
                             >
-                                <p className='sm:text-3xl text-xl absolute top-5 font-["Arima-Semibold"] text-center'>{item.name}</p>
-                                <p className='sm:text-2xl text-xl absolute top-15 font-["Arima-Semibold"] text-center'>{item.role}</p>
+                                <p className='sm:text-3xl text-xl absolute top-5 font-["Arima"] font-semibold text-center'>{item.name}</p>
+                                <p className='sm:text-2xl text-xl absolute top-15 font-["Arima"] font-semibold text-center'>{item.role}</p>
                                 <div className='self-end flex flex-wrap justify-center sm:gap-6 gap-2 right-1/5 mb-5'>
                                     {item.instagram && item.instagram !== '' && <a className='pointer-events-auto' target="_blank" rel="noopener noreferrer" href={item.instagram}><img src={instagram_icon} alt="Instagram" className='w-8 h-8 relative top-[-3px]' /></a>}
                                     {item.facebook && item.facebook !== '' && <a className='pointer-events-auto' target="_blank" rel="noopener noreferrer" href={item.facebook}><img src={facebook_icon} alt="Facebook" className='w-6 h-6' /></a>}

@@ -2,12 +2,12 @@ import bg from '../assets/socials_board.png'
 import linktree_logo from "../assets/socials/linktree-icon.svg"
 import "./ContactCIS.css";
 
-const linktree_link = "linktree.com" // these are the social media links of CIS ISET Bizerte SBC
+const linktree_link = "https://linktr.ee/CIS_ISETBizerte" // these are the social media links of CIS ISET Bizerte SBC
 
 function ContactCIS() {
     return (
         <div id="contact" className="bg-[#3EA2DC] sm:h-[620px] h-[950px] text-white overflow-y-hidden" style={{ overflowX: 'hidden' }}>
-            <div className="text-center mt-3 pt-7 font-['Arima-Semibold'] text-5xl underline">
+            <div className="text-center mt-3 pt-7 font-['Arima'] font-semibold text-5xl underline">
                 Contact us</div>
             <p className="text-center font-['Arima'] sm:text-4xl sm:px-0 px-2 text-2xl mt-5">
                 If you want to ask us any question, or just give us a feedback,<br />

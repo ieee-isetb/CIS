@@ -29,7 +29,7 @@ function AboutCIS() {
     });
     return (
         <div id="about" className='h-[370px]'>
-            <div className="text-center mt-7 mb-9 font-['Arima-Semibold'] text-5xl underline text-[#3EA2DC]">
+            <div className="text-center mt-7 mb-9 font-['Arima'] font-semibold text-5xl underline text-[#3EA2DC]">
                 About us</div>
             <div className='grid grid-cols-2 items-center'>
                 <div className="cursor-pointer relative w-[50%] justify-self-center sm:block hidden"
@@ -63,7 +63,7 @@ function AboutCIS() {
                     ))}
                 </div>
                 <div className="font-['Arima'] sm:ml-3 description-container">
-                    <p className='font-normal text-2xl mt-2 text-["Arya"]'>IEEE <b className='font-["Arima-Semibold"] text-[#3EA2DC]'>CIS</b> ISET Bizerte SBC</p>
+                    <p className='font-normal text-2xl mt-2 text-["Arya"]'>IEEE <b className='font-["Arima"] font-semibold text-[#3EA2DC]'>CIS</b> ISET Bizerte SBC</p>
                     <p className='text-justify w-[70%] mt-5 text-[#666] dark_about_cis'>
                         The Computational Intelligence Society (CIS) chapter at ISET
                         Bizerte, affiliated with IEEE, is dedicated to advancing knowledge
