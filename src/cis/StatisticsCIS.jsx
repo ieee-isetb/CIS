@@ -25,7 +25,7 @@ function StatisticsCIS() {
                 distortion={0.05}
                 className="brightness-[150%]"
             />
-            <p className="text-center text-5xl underline z-[5] absolute top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] text-white font-['Arima_Semibold']">
+            <p className="text-center text-5xl underline z-[5] absolute top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] text-white font-['Arima-Semibold']">
                 Statistics
             </p>
             <div className="absolute top-[75%] w-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[5] sm:block hidden">

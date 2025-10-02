@@ -1,21 +1,13 @@
 import bg from '../assets/socials_board.png'
-import discord from '../assets/socials/discord-color.svg'
-import facebook from '../assets/socials/facebook-color.svg'
-import instagram from '../assets/socials/instagram-color.svg'
-import gmail from '../assets/socials/gmail-color.svg'
+import linktree_logo from "../assets/socials/linktree-icon.svg"
 import "./ContactCIS.css";
 
-const socials = {
-    instagram: "https://www.instagram.com/",
-    facebook: "https://www.facebook.com/profile.php?id=61567684887441",
-    discord: "https://discord.gg/6qZvfp8Rfy",
-    gmail: "cisofficiel@gmail.com"
-}; // these are the social media links of CIS ISET Bizerte SBC
+const linktree_link = "linktree.com" // these are the social media links of CIS ISET Bizerte SBC
 
 function ContactCIS() {
     return (
         <div id="contact" className="bg-[#3EA2DC] sm:h-[620px] h-[950px] text-white overflow-y-hidden" style={{ overflowX: 'hidden' }}>
-            <div className="text-center mt-3 pt-7 font-['Arima_Semibold'] text-5xl underline">
+            <div className="text-center mt-3 pt-7 font-['Arima-Semibold'] text-5xl underline">
                 Contact us</div>
             <p className="text-center font-['Arima'] sm:text-4xl sm:px-0 px-2 text-2xl mt-5">
                 If you want to ask us any question, or just give us a feedback,<br />
@@ -30,7 +22,7 @@ function ContactCIS() {
                         <input type="email" placeholder="Your Email" className="p-2 rounded-md bg-white" />
                         <label className="label-feedback">Your Message</label>
                         <textarea placeholder="Your Message" className="p-2 rounded-md h-32 bg-white resize-none"></textarea>
-                        <div className='grid grid-cols-2 gap-2 absolute bottom-[-18%] sm:w-[424px] w-85 font-["Inter"]'>
+                        <div className='grid grid-cols-2 gap-2 absolute bottom-[-18%] sm:w-[424px] w-85 font-["Inter"] form-buttons'>
                             <button type="submit" className="bg-white border-2 border-transparent text-[#3EA2DC] p-2 rounded-md hover:bg-[#3EA2DC] hover:border-white hover:text-white transition-colors underline cursor-pointer">
                                 Send Message
                             </button>
@@ -40,17 +32,12 @@ function ContactCIS() {
                         </div>
                     </form>
                 </div>
-                <div id="socials" className="w-[600px] sm:justify-self-end mr-5 justify-self-center relative sm:bottom-0 bottom-50 scale-65 sm:scale-100 -left-[15%] sm:left-0">
+                <div id="socials" className="w-[600px] button-container sm:justify-self-end mr-5 justify-self-center relative sm:bottom-0 bottom-25 scale-65 sm:scale-100 -left-[15%] sm:left-0">
                     <img src={bg} alt="Socials Background" className="object-cover relative" />
                     <p className="relative bottom-[308px] p-1 left-[46.5%] bg-white w-[23%] text-center text-[12px] text-[#2294FE] underline font-['Inter']">
                         Don't forget to follow us on our socials!
                     </p>
-                    <div className='grid grid-cols-2 gap-y-2 gap-x-3 justify-items-center relative bottom-[300px] left-[22%] w-[110px] button-container'>
-                        <a href={socials.instagram} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={instagram} /></a>
-                        <a href={socials.facebook} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={facebook} /></a>
-                        <a href={socials.discord} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={discord} /></a>
-                        <a href={`mailto:${socials.gmail}`} target='_blank' rel="noopener noreferrer" className='bg-white p-2.5 rounded-3xl cursor-pointer'><img src={gmail} className='w-[300px] h-[100%]' /></a>
-                    </div>
+                    <a href={linktree_link} target='_blank' rel="noopener noreferrer" className='absolute top-[35%] left-[25%] w-[10%] bg-white p-2.5 rounded-4xl cursor-pointer'><img src={linktree_logo} width={40} height={40} /></a>
                 </div>
             </div>
         </div>

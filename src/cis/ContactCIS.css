@@ -20,10 +20,30 @@
 .button-container a{
     box-shadow: 0px 4px 4px 2px rgba(0,0,0,0.25);
     transition: all 0.1s ease-in-out;
+    &>img{
+        filter: brightness(80%);
+    }
 }
 
 .button-container a:hover{
     box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.25);
+}
+
+@media screen and (max-width: 640px) {
+    .label-feedback+input, .label-feedback+textarea {
+        color: rgba(0,0,0,0.7);
+        font-family: "Inter";
+        width: 80vw;
+        &::placeholder{
+            color: #d2d2d2;
+            font-family: 'Inter';
+            font-size: 15px;
+            margin-bottom: -2px;
+        }
+    }
+    .form-buttons{
+        width: 80vw;
+    }
 }
 
 /* Form labels 

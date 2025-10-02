@@ -70,8 +70,7 @@ body.dark .navbar-scrolled {
 
 /* Join Us Button Styles */
 .join-us-btn {
-    font-family: 'Arima';
-    font-weight: bold;
+    font-family: 'Arima-Bold';
     font-size: 14px;
     color: white;
     background-color: #3EA2DC;
