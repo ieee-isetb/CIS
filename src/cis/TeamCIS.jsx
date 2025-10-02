@@ -8,7 +8,7 @@ import './TeamCIS.css';
 function TeamCis() {
     const teamMembers = [
         {
-            "role": "Chair",
+            "role": "Chair & Founder",
             "name": "Yassine Zorgui",
             "instagram": "",
             "facebook": "https://www.facebook.com/mohamedyassine.zorgui",
