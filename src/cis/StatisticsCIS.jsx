@@ -6,7 +6,7 @@ const stats = {
     members: 20,
     workshops: 5,
     bootcamps: 2,
-    foundation: 2025 //this year must not be changed
+    events: 1
 } // these are the statistics of CIS ISET Bizerte SBC
 
 function StatisticsCIS() {
@@ -25,7 +25,7 @@ function StatisticsCIS() {
                 distortion={0.05}
                 className="brightness-[150%]"
             />
-            <p className="text-center text-5xl font-[600] underline z-[5] absolute top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] text-white font-['Arima']">
+            <p className="text-center text-5xl underline z-[5] absolute top-1/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] text-white font-['Arima_Semibold']">
                 Statistics
             </p>
             <div className="absolute top-[75%] w-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[5] sm:block hidden">
@@ -43,24 +43,24 @@ function StatisticsCIS() {
                         <span className="stats_title">Bootcamps</span>
                     </div>
                     <div className="grid grid-rows-2 gap-3 stats_div">
-                        <CountUp from={2019} to={stats.foundation} duration={2} className="text-5xl font-[600] stats_value py-[15%] pl-3 pr-[10px]" />
-                        <span className="stats_title">Foundation</span>
+                        <CountUp from={0} to={stats.events} duration={2} className="text-5xl font-[600] stats_value p-[23%]" />
+                        <span className="stats_title last">Events</span>
                     </div>
                 </div>
             </div>
-            <div className="absolute top-[60%] w-[100%] transform -translate-y-1/2 text-white z-[5] sm:hidden block">
+            <div className="absolute top-[60%] w-[100%] transform -translate-y-1/2 text-white z-[5] sm:hidden block -ml-[2%]">
                 <div className="text-3xl grid-cols-2 gap-2 grid w-[100vw] px-7">
                     <div className="grid grid-rows-4 gap-2">
                         <span className="">Members</span>
                         <span className="">Workshops</span>
                         <span className="">Bootcamps</span>
-                        <span className="">Foundation</span>
+                        <span className="">Events</span>
                     </div>
                     <div className="grid grid-rows-4 justify-start gap-2" dir="rtl">
                         <CountUp from={0} to={stats.members} duration={2} className="font-[600]" />
                         <CountUp from={0} to={stats.workshops} duration={2} className="font-[600]" />
                         <CountUp from={0} to={stats.bootcamps} duration={2} className="font-[600]" />
-                        <CountUp from={2019} to={stats.foundation} duration={2} className="font-[600]" />
+                        <CountUp from={0} to={stats.events} duration={2} className="font-[600]" />
                     </div>
                 </div>
             </div>

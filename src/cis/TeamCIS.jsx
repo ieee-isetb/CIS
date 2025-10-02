@@ -49,7 +49,7 @@ function TeamCis() {
 
     return (
         <div id='team'>
-            <div className="text-center mt-7 mb-9 font-['Arima'] font-[600] text-5xl underline text-[#3EA2DC]">
+            <div className="text-center mt-7 mb-9 font-['Arima_Semibold'] text-5xl underline text-[#3EA2DC]">
                 Our Team</div>
             <div className="flex flex-wrap justify-center gap-5 sm:p-0 p-2">
                 {teamMembers.map((item) => (
@@ -67,13 +67,13 @@ function TeamCis() {
                                     backgroundColor: "#3EA2DC92"
                                 }}
                             >
-                                <p className='font-[600] sm:text-3xl text-xl absolute top-5 font-["Arima"] text-center'>{item.name}</p>
-                                <p className='font-[600] sm:text-2xl text-xl absolute top-15 font-["Arima"] text-center'>{item.role}</p>
+                                <p className='sm:text-3xl text-xl absolute top-5 font-["Arima_Semibold"] text-center'>{item.name}</p>
+                                <p className='sm:text-2xl text-xl absolute top-15 font-["Arima_Semibold"] text-center'>{item.role}</p>
                                 <div className='self-end flex flex-wrap justify-center sm:gap-6 gap-2 right-1/5 mb-5'>
-                                    {item.instagram && item.instagram !== '' && <a className='pointer-events-auto' href={item.instagram}><img src={instagram_icon} alt="Instagram" className='w-8 h-8 relative top-[-3px]' /></a>}
-                                    {item.facebook && item.facebook !== '' && <a className='pointer-events-auto' href={item.facebook}><img src={facebook_icon} alt="Facebook" className='w-6 h-6' /></a>}
-                                    {item.linkedin && item.linkedin !== '' && <a className='pointer-events-auto' href={item.linkedin}><img src={linkedin_icon} alt="LinkedIn" className='w-6 h-6' /></a>}
-                                    {item.ieee_email && item.ieee_email !== '' && <a className='pointer-events-auto' href={`mailto:${item.ieee_email}`}><img src={gmail_icon} alt="Gmail" className='w-7.5 h-7.5' /></a>}
+                                    {item.instagram && item.instagram !== '' && <a className='pointer-events-auto' target="_blank" rel="noopener noreferrer" href={item.instagram}><img src={instagram_icon} alt="Instagram" className='w-8 h-8 relative top-[-3px]' /></a>}
+                                    {item.facebook && item.facebook !== '' && <a className='pointer-events-auto' target="_blank" rel="noopener noreferrer" href={item.facebook}><img src={facebook_icon} alt="Facebook" className='w-6 h-6' /></a>}
+                                    {item.linkedin && item.linkedin !== '' && <a className='pointer-events-auto' target="_blank" rel="noopener noreferrer" href={item.linkedin}><img src={linkedin_icon} alt="LinkedIn" className='w-6 h-6' /></a>}
+                                    {item.ieee_email && item.ieee_email !== '' && <a className='pointer-events-auto' target="_blank" rel="noopener noreferrer" href={`mailto:${item.ieee_email}`}><img src={gmail_icon} alt="Gmail" className='w-7.5 h-7.5' /></a>}
                                 </div>
                             </div>
                         }

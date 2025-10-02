@@ -6,7 +6,7 @@ function FooterCIS() {
         <div id="footer">
             {/* Desktop Footer */}
             <div className="h-auto sm:flex flex-col bg-white p-4 overflow-hidden hidden">
-                <div className="flex justify-between items-center border-b border-gray-200 pb-4">
+                <div className="flex justify-between items-center border-t border-gray-200 pt-4">
                     <div className="flex flex-col">
                         <p className="font-['Inter'] text-2xl text-[rgba(0,0,0,0.7)]">
                             © IEEE ISET BIZERTE SB 2025
