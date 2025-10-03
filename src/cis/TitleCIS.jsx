@@ -16,7 +16,7 @@ function TitleCIS(){
             noiseIntensity={1.5}
             rotation={0}
             />
-        <p className="text-white font-['Times_New_Roman'] text-center text-4xl font-bold absolute sm:top-1/4 top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%]">
+        <p className="text-white font-['Times_New_Roman'] text-center text-4xl font-bold absolute sm:top-1/4 top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] px-2 sm:px-0">
             <ReactTyped
              strings={["IEEE Computational Intelligence Society<br />ISETB Student Branch Chapter"]}
              typeSpeed={50}
@@ -26,7 +26,7 @@ function TitleCIS(){
              />
         </p>
         {quoteType && (
-        <p className="cis-quote text-white font-['Times_New_Roman'] text-center text-2xl absolute sm:top-1/2 top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%]">
+        <p className="cis-quote text-white font-['Times_New_Roman'] text-center text-2xl absolute sm:top-1/2 top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] px-2 sm:px-0">
             <ReactTyped
              strings={["Where Intelligence Meets Innovation"]}
              typeSpeed={50}

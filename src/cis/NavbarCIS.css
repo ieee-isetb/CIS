@@ -124,6 +124,14 @@ body.dark .join-us-btn:hover {
   object-fit: contain;
 }
 
+.nav-logo.mobile{
+    width: 30px;
+}
+
+body.dark .nav-logo.mobile{
+    filter: brightness(110%);
+}
+
 /* Dark mode global styles */
 body.dark {
     background-color: #121212;
