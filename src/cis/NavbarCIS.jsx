@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import logoDark from '../assets/cis_white_logo.png'
 import logoLight from '../assets/cis_black_logo.png';
+import logoMobile from "../assets/cis_mobile_logo.png"
 import ScrollIntoView from 'react-scroll-into-view';
 import "./NavbarCIS.css";
 
@@ -22,6 +23,8 @@ const SunIcon = () => (
 function NavbarCIS() {
   const [darkMode, setDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mobileLogoScreenWidth = 720 //px
+  const [isMobile, setIsMobile] = useState(window.innerWidth < mobileLogoScreenWidth);
   const registrationFormURL = "https://forms.gle/8toQ46baTj2yQh9b9";
 
   useEffect(() => {
@@ -40,6 +43,15 @@ function NavbarCIS() {
     };
   }, [scrolled]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < mobileLogoScreenWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     document.body.classList.toggle("dark", !darkMode);
@@ -47,7 +59,8 @@ function NavbarCIS() {
 
   return (
     <div className={`navbar-cis ${scrolled ? 'navbar-scrolled' : ''}`}>
-      <img src={darkMode ? logoDark : logoLight} alt="Logo" className="nav-logo"/>
+      {!isMobile && (<img src={darkMode ? logoDark : logoLight} alt="Logo" className="nav-logo"/>)}
+      {isMobile && (<img src={logoMobile} alt="Logo" className="nav-logo mobile"/>)}
       <nav>
         <ul className="nav-links">
           <li><ScrollIntoView selector='#home'><button>Home</button></ScrollIntoView></li>
