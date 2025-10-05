@@ -48,7 +48,7 @@ function StatisticsCIS() {
                     </div>
                 </div>
             </div>
-            <div className="absolute top-[60%] w-[100%] transform -translate-y-1/2 text-white z-[5] sm:hidden block -ml-[2%]">
+            <div className="absolute top-[60%] w-[100%] transform -translate-y-1/2 text-white z-[5] sm:hidden block">
                 <div className="text-3xl grid-cols-2 gap-2 grid w-[100vw] px-7">
                     <div className="grid grid-rows-4 gap-2">
                         <span className="">Members</span>
