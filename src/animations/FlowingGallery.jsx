@@ -15,7 +15,7 @@ function FlowingGallery({ items = [] }) {
   );
 }
 
-function MenuItem({ link, text, image }) {
+function MenuItem({ text, image, description }) {
   const itemRef = React.useRef(null);
   const marqueeRef = React.useRef(null);
   const marqueeInnerRef = React.useRef(null);
@@ -70,9 +70,9 @@ function MenuItem({ link, text, image }) {
 
   return (
     <div className="menu__item" ref={itemRef}>
-      <a className="menu__item-link" href={link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <span className="menu__item-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         {text}
-      </a>
+      </span>
       <div className="marquee" ref={marqueeRef}>
         <div className="marquee__inner-wrap" ref={marqueeInnerRef}>
           <div className="marquee__inner" aria-hidden="true">
