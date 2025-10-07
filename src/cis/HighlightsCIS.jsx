@@ -22,7 +22,7 @@ function HighlightsCIS() {
                 disableRotation={false}
             />
             <p className="text-center text-5xl underline z-[5] absolute top-[4%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] text-white font-['Arima'] font-semibold">
-                Our Highlights
+                Highlights
             </p>
             <div className="absolute top-[53%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-[5] h-[1800px] w-[100%] block">
                 <FlowingGallery items={demoItems} />
