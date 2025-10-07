@@ -22,6 +22,7 @@
 }
 
 .menu__item-link {
+  font-family: "Arima";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +34,7 @@
   white-space: nowrap;
   font-weight: 600;
   color: #fff;
-  font-size: 4vh;
+  font-size: 10vh;
 }
 
 .menu__item-link:hover {
@@ -74,7 +75,7 @@
   animation: marquee 15s linear infinite;
 }
 
-.marquee span {
+.marquee span:not(.menu__item-link) {
   color: #060010;
   white-space: nowrap;
   text-transform: uppercase;

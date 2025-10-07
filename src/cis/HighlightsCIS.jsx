@@ -1,18 +1,18 @@
 import Stars from "../animations/StarsBG";
 import FlowingGallery from "../animations/FlowingGallery";
 
-function GalleryCIS() {
+function HighlightsCIS() {
     const demoItems = [
-        { text: 'Mojave', image: 'https://picsum.photos/600/400?random=1', description: 'A beautiful view of Mojave Desert.' },
-        { text: 'Sonoma', image: 'https://picsum.photos/600/400?random=2', description: 'A stunning landscape of Sonoma County.' },
-        { text: 'Monterey', image: 'https://picsum.photos/600/400?random=3', description: 'The picturesque coastline of Monterey.' },
-        { text: 'Sequoia', image: 'https://picsum.photos/600/400?random=4', description: 'The majestic Sequoia trees.' }
+        { text: 'Mojave', images: 'https://picsum.photos/600/400?random=1', title: "Members" },
+        { text: 'Sonoma', images: 'https://picsum.photos/600/400?random=2', title: "Workshops" },
+        { text: 'Monterey', images: 'https://picsum.photos/600/400?random=3', title: "Bootcamps" },
+        { text: 'Sequoia', images: 'https://picsum.photos/600/400?random=4', title: "Events" }
     ];
     
     return (
         <div className="w-[100%] h-[2000px] relative bg-[#102c3c]">
             <Stars
-                particleColors={['#ffffff', '#ffffff']}
+                particleColors={['#ffffff']}
                 particleCount={300}
                 particleSpread={10}
                 speed={0.1}
@@ -31,4 +31,4 @@ function GalleryCIS() {
         </div>
     );
 }
-export default GalleryCIS;
+export default HighlightsCIS;

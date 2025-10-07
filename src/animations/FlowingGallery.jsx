@@ -15,7 +15,7 @@ function FlowingGallery({ items = [] }) {
   );
 }
 
-function MenuItem({ text, image, description }) {
+function MenuItem({ text, images, title }) {
   const itemRef = React.useRef(null);
   const marqueeRef = React.useRef(null);
   const marqueeInnerRef = React.useRef(null);
@@ -64,14 +64,14 @@ function MenuItem({ text, image, description }) {
   const repeatedMarqueeContent = Array.from({ length: 4 }).map((_, idx) => (
     <React.Fragment key={idx}>
       <span>{text}</span>
-      <div className="marquee__img" style={{ backgroundImage: `url(${image})` }} />
+      <div className="marquee__img" style={{ backgroundImage: `url(${images})` }} />
     </React.Fragment>
   ));
 
   return (
     <div className="menu__item" ref={itemRef}>
       <span className="menu__item-link" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        {text}
+        {title}
       </span>
       <div className="marquee" ref={marqueeRef}>
         <div className="marquee__inner-wrap" ref={marqueeInnerRef}>
