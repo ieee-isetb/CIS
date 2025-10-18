@@ -26,15 +26,6 @@ function TeamCis() {
             "photo": "/CIS/team/allani_mohamed.png"
         },
         {
-            "role": "HR Manager",
-            "name": "Tasnim Belhassen",
-            "instagram": "https://www.instagram.com/tasnim.bbelhassen/",
-            "facebook": "https://www.facebook.com/tasnim.benbelhassen.2025",
-            "linkedin": "https://www.linkedin.com/in/tasnim-benbelhassen-25b459353/",
-            "ieee_email": "tasnim.bbelhassen@ieee.org",
-            "photo": "/CIS/team/tasnim_belhassen.jpeg"
-        },
-        {
             "role": "Treasurer",
             "name": "Louay Mhouachi",
             "instagram": "https://www.instagram.com/louay.mhouachy/",
