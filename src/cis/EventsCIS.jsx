@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import returnSVG from "../assets/return.svg"
 
 const eventNames = [
-   "Our Boot", "Code It Up 5.0", "AWS Bootcamp", "ABC'S OF AI", "Introduction to Image Generation"
+   "Our Booth", "Code It Up 5.0", "AWS Bootcamp", "ABC'S OF AI", "Introduction to Image Generation"
 ]
 
 function EventsCIS() {
