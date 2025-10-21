@@ -5,6 +5,7 @@ import StatisticsCIS from './cis/StatisticsCIS'
 import TeamCis from './cis/TeamCIS'
 import ContactCIS from './cis/ContactCIS'
 import FooterCIS from './cis/FooterCIS'
+import EventsCIS from './cis/EventsCIS'
 import './App.css'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <TitleCIS />
       <AboutCIS />
       <StatisticsCIS />
+      <EventsCIS />
       <TeamCis />
       <ContactCIS />
       <FooterCIS />

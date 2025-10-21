@@ -1,0 +1,11 @@
+
+.fade-container {
+  /* Ensure the transition applies to the container and its content */
+  transition: opacity 200ms ease;
+  opacity: 1;
+  will-change: opacity; /* small perf hint */
+}
+
+.fade-container.fading {
+  opacity: 0;
+}

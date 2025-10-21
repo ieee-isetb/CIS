@@ -23,7 +23,7 @@ const SunIcon = () => (
 function NavbarCIS() {
   const [darkMode, setDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const mobileLogoScreenWidth = 720 //px
+  const mobileLogoScreenWidth = 800 //px
   const [isMobile, setIsMobile] = useState(window.innerWidth < mobileLogoScreenWidth);
   const registrationFormURL = "https://forms.gle/8toQ46baTj2yQh9b9";
 
@@ -66,6 +66,7 @@ function NavbarCIS() {
           <li><ScrollIntoView selector='#home'><button>Home</button></ScrollIntoView></li>
           <li><ScrollIntoView selector='#about'><button>About us</button></ScrollIntoView></li>
           <li><ScrollIntoView selector='#stats'><button>Statistics</button></ScrollIntoView></li>
+          <li><ScrollIntoView selector='#events'><button>Events</button></ScrollIntoView></li>
           <li><ScrollIntoView selector='#team'><button>Team</button></ScrollIntoView></li>
           <li><ScrollIntoView selector='#contact'><button>Contact</button></ScrollIntoView></li>
 
