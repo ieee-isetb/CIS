@@ -29,7 +29,7 @@ function AboutCIS() {
     });
     return (
         <div id="about" className='h-[370px]'>
-            <div className="text-center mt-7 mb-9 font-['Arima'] font-semibold text-5xl underline text-[#3EA2DC]">
+            <div className="text-center pt-7 pb-9 font-['Arima'] font-semibold text-5xl underline text-[#3EA2DC]">
                 About us</div>
             <div className='grid grid-cols-2 items-center'>
                 <div className="cursor-pointer relative w-[50%] justify-self-center sm:block hidden"

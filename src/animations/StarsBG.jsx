@@ -230,7 +230,7 @@ const StarsBG = ({
     disableRotation
   ]);
 
-  return <div ref={containerRef} className={`relative w-full h-screen ${className}`} />;
+  return <div ref={containerRef} className={`relative w-full sm:h-[55vw] h-[150vh] ${className}`} />;
 };
 
 export default StarsBG;
