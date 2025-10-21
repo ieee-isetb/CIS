@@ -1,17 +1,9 @@
 import { useState, useRef } from "react";
 import "./SlideShow.css";
 
-const images = [
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-  "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-];
-
 const FADE_DURATION = 300; // ms — keep in sync with CSS
 
-function SlideShow() {
+function SlideShow({ eventTitle, images }) {
   const [current, setCurrent] = useState(0);
   const [isFading, setIsFading] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false); // <-- drives button disabled state
@@ -50,7 +42,7 @@ function SlideShow() {
   return (
     <div className="flex flex-col items-center">
       <span className="block text-center text-3xl underline text-white font-['Inter'] font-semibold mb-6 tracking-wide drop-shadow-lg">
-        Code It Up 5.0
+        {eventTitle}
       </span>
 
       <div className="relative w-full max-w-4xl flex items-center justify-center">
@@ -128,9 +120,11 @@ function SlideShow() {
         </button>
       </div>
 
-      <p className="block text-center text-xl text-gray-200 font-['Inter'] mt-6 px-2 leading-relaxed drop-shadow-sm">
-        Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.
-      </p>
+      <div className="flex justify-center mt-6">
+        <span className="text-gray-200 font-['Inter'] text-lg">
+          {`Image ${current + 1} of ${total}`}
+        </span>
+      </div>
     </div>
   );
 }
