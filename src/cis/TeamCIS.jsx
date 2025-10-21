@@ -40,7 +40,7 @@ function TeamCis() {
 
     return (
         <div id='team'>
-            <div className="text-center mt-7 mb-9 font-['Arima'] font-semibold text-5xl underline text-[#3EA2DC]">
+            <div className="text-center pt-7 pb-9 font-['Arima'] w-full font-semibold text-5xl underline text-[#3EA2DC] bg-white relative z-10">
                 Our Team</div>
             <div className="flex flex-wrap justify-center gap-5 sm:p-0 p-2">
                 {teamMembers.map((item) => (
