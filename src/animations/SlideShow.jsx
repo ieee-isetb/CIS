@@ -1,33 +1,53 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./SlideShow.css";
 
-const FADE_DURATION = 300; // ms — keep in sync with CSS
+const FADE_DURATION = 300;
 
 function SlideShow({ eventTitle, images }) {
   const [current, setCurrent] = useState(0);
   const [isFading, setIsFading] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false); // <-- drives button disabled state
-  const isTransitioningRef = useRef(false); // <-- internal guard to prevent rapid clicks
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [loadedCount, setLoadedCount] = useState(0);
+
+  const isTransitioningRef = useRef(false);
+  const preloadStarted = useRef(false); // ✅ prevents duplicate preloading
   const total = images.length;
+
+  const allLoaded = loadedCount >= total;
+
+  // ✅ preload images safely (only once)
+  useEffect(() => {
+    if (preloadStarted.current) return; // skip if already done
+    preloadStarted.current = true;
+
+    let loaded = 0;
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = img.onerror = () => {
+        loaded += 1;
+        setLoadedCount((count) => {
+          const newCount = count + 1;
+          return newCount > total ? total : newCount;
+        });
+      };
+    });
+  }, [images, total]);
 
   const doTransition = (computeNextIndex) => {
     if (isTransitioningRef.current) return;
 
     isTransitioningRef.current = true;
-    setIsTransitioning(true); // update UI state
-    setIsFading(true);        // start fade-out
+    setIsTransitioning(true);
+    setIsFading(true);
 
     setTimeout(() => {
       setCurrent((prev) => computeNextIndex(prev, total));
-
-      // next frame: fade back in
       requestAnimationFrame(() => {
         setIsFading(false);
-
-        // release after fade-in ends
         setTimeout(() => {
           isTransitioningRef.current = false;
-          setIsTransitioning(false); // re-enable arrows
+          setIsTransitioning(false);
         }, FADE_DURATION);
       });
     }, FADE_DURATION);
@@ -39,6 +59,19 @@ function SlideShow({ eventTitle, images }) {
   const prevIndex = (current - 1 + total) % total;
   const nextIndex = (current + 1) % total;
 
+  // ✅ show loading spinner until all are loaded
+  if (!allLoaded) {
+    return (
+      <div className="flex flex-col items-center justify-center h-96 text-white">
+        <div className="loader mb-4" />
+        <p className="text-lg font-semibold font-['Inter']">
+          Loading images... ({Math.min(loadedCount, total)}/{total})
+        </p>
+      </div>
+    );
+  }
+
+  // ✅ slideshow after load
   return (
     <div className="flex flex-col items-center">
       <span className="block text-center text-3xl underline text-white font-['Inter'] font-semibold mb-6 tracking-wide drop-shadow-lg">
@@ -47,9 +80,7 @@ function SlideShow({ eventTitle, images }) {
 
       <div className="relative w-full max-w-4xl flex items-center justify-center">
         {/* Previous preview */}
-        <div
-          className="hidden md:block w-1/5 opacity-50 transform scale-90 hover:scale-95 transition"
-        >
+        <div className="hidden md:block w-1/5 opacity-50 transform scale-90 hover:scale-95 transition">
           <div className={`fade-container ${isFading ? "fading" : ""}`}>
             <img
               src={images[prevIndex]}
@@ -71,9 +102,7 @@ function SlideShow({ eventTitle, images }) {
         </div>
 
         {/* Next preview */}
-        <div
-          className="hidden md:block w-1/5 opacity-50 transform scale-90 hover:scale-95 transition"
-        >
+        <div className="hidden md:block w-1/5 opacity-50 transform scale-90 hover:scale-95 transition">
           <div className={`fade-container ${isFading ? "fading" : ""}`}>
             <img
               src={images[nextIndex]}
