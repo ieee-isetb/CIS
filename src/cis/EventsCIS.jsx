@@ -99,7 +99,7 @@ function EventsCIS() {
                 <button
                     style={{ top: `${topBackBtn}%` }}
                     onClick={() => {setShowOneEvent(false)}}
-                    className="z-[5] bg-white/10 backdrop-blur-md text-white absolute rounded-4xl left-[40%] p-1 cursor-pointer">
+                    className="z-[5] bg-white/10 backdrop-blur-md text-white absolute rounded-4xl sm:left-[40%] left-[20%] p-1 cursor-pointer">
                     <img src={returnSVG} className="w-[40px]" />
                 </button>)}
             {showOneEvent && selectedEvent && (
