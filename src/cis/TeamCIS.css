@@ -7,3 +7,11 @@
 body.dark .profile_card{
     border: 3px solid #f1f1f1;
 }
+
+.title-team{
+    background-color: white;
+}
+
+body.dark .title-team{
+    background-color: #121212;
+}
