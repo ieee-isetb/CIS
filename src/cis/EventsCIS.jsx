@@ -50,12 +50,12 @@ const events = [
         title: "AI and the Art of Time Mastery",
         folder: "AI_and_the_art_of_time_mastery",
         images: [
-            "/CIS/events/AI_and_the_art_of_time_mastery/496299613_122148543872589496_7986176113008782413_n.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-12.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-3.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-41.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-48.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-5.jpg"
+            "/CIS/events/AI_and_the_art_of_time_mastery/496299613_122148543872589496_7986176113008782413_n.svg",
+            "/CIS/events/AI_and_the_art_of_time_mastery/pic-12.svg",
+            "/CIS/events/AI_and_the_art_of_time_mastery/pic-3.svg",
+            "/CIS/events/AI_and_the_art_of_time_mastery/pic-41.svg",
+            "/CIS/events/AI_and_the_art_of_time_mastery/pic-48.svg",
+            "/CIS/events/AI_and_the_art_of_time_mastery/pic-5.svg"
         ]
     },
     {
