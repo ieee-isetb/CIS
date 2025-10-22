@@ -80,7 +80,7 @@ function EventsCIS() {
         setTopBackBtn(3.5 + Math.max(0, events.length - 4))
     }, [])
     return (
-        <div id="events" className="w-[100%] relative bg-[#102c3c]"
+        <div id="events" className="w-[100%] relative bg-[#0E2A3A]"
         style={{ height: `${h_events}px` }}>
             <StarsBG
                 particleColors={['#ffffff']}
