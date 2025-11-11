@@ -14,7 +14,7 @@ function TeamCis() {
             "facebook": "https://www.facebook.com/mohamedyassine.zorgui",
             "linkedin": "https://www.linkedin.com/in/mohamed-yassine-zorgui-849211294/",
             "ieee_email": "Zorguimohamedyassine@ieee.org",
-            "photo": "/CIS/team/yassine_zorgui.jpeg"
+            "photo": "/team/yassine_zorgui.jpeg"
         },
         {
             "role": "Vice Chair",
@@ -23,7 +23,7 @@ function TeamCis() {
             "facebook": "https://www.facebook.com/all4n1",
             "linkedin": "https://www.linkedin.com/in/allani-mohamed-570952366/",
             "ieee_email": "allani_mohamed@ieee.org",
-            "photo": "/CIS/team/allani_mohamed.png"
+            "photo": "/team/allani_mohamed.png"
         },
         {
             "role": "Treasurer",
@@ -32,7 +32,7 @@ function TeamCis() {
             "facebook": "https://www.instagram.com/louay.mhouachi/",
             "linkedin": "",
             "ieee_email": "louay.mhouachi@ieee.org",
-            "photo": "/CIS/team/louay_mhouachi.png"
+            "photo": "/team/louay_mhouachi.png"
         }
     ]
     // this is the team members data of CIS ISET Bizerte SBC
