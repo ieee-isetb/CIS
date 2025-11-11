@@ -1,12 +1,12 @@
-name: Deploy to GitHub Pages
+name: Deploy to Organization Server via FTP
 
 on:
   push:
-    branches: ['main']
-  workflow_dispatch:
+    branches: ['main'] # Deploys on every push to main
+  workflow_dispatch: # Allows you to run it manually
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   deploy:
@@ -24,14 +24,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Setup Git User
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Build Project
+        run: npm run build # This runs your vite build command
+
+      - name: 🚚 Deploy files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          local-dir: ./dist/ # The folder to upload (from 'npm run build')
           
-      - name: Deploy
-        run: |
-          git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # This is the directory we found.
+          # It uploads the contents of ./dist/ INTO ./cis-isetbizerte.ieee.tn/
+          server-dir: ./cis-isetbizerte.ieee.tn/
+          
+          protocol: ftp 
+          dangerous-clean-slate: true # Deletes old files on the server
