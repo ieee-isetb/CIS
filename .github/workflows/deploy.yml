@@ -1,9 +1,9 @@
-name: Deploy to Organization Server via FTP
+name: Deploy to IEEE.TN Server via FTP
 
 on:
   push:
-    branches: ['main'] # Deploys on every push to main
-  workflow_dispatch: # Allows you to run it manually
+    branches: ['main']
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -25,20 +25,16 @@ jobs:
         run: npm install
 
       - name: Build Project
-        run: npm run build # This runs your vite build command
+        run: npm run build
 
-      - name: 🚚 Deploy files via FTP
+      - name: Deploy files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          local-dir: ./dist/ # The folder to upload (from 'npm run build')
-          
-          # This is the directory we found.
-          # It uploads the contents of ./dist/ INTO ./cis-isetbizerte.ieee.tn/
+          local-dir: ./dist/
           server-dir: ./cis-isetbizerte.ieee.tn/
-          
           protocol: ftp 
-          dangerous-clean-slate: true # Deletes old files on the server
+          dangerous-clean-slate: true
