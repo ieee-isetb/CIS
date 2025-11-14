@@ -21,6 +21,10 @@ This is the official website for the IEEE Computational Intelligence Society (CI
 - [GSAP](https://greensock.com/gsap/) - Animations
 - [React Typed](https://www.npmjs.com/package/react-typed) - Typing animations
 
+
+[<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
+
+
 ## 📋 Prerequisites
 
 - Node.js (Latest Version) - [Download here](https://nodejs.org/en)
@@ -90,7 +94,6 @@ CIS/
 
 - **Chair**: Yassine Zorgui
 - **General Secretary**: Allani Mohamed
-- **HR Manager**: Tasnim Belhassen
 - **Treasurer**: Louay Mhouachi
 
 ## 📞 Contact
