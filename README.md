@@ -21,6 +21,10 @@ This is the official website for the IEEE Computational Intelligence Society (CI
 - [GSAP](https://greensock.com/gsap/) - Animations
 - [React Typed](https://www.npmjs.com/package/react-typed) - Typing animations
 
+
+[<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
+
+
 ## 📋 Prerequisites
 
 - Node.js (Latest Version) - [Download here](https://nodejs.org/en)
@@ -50,26 +54,6 @@ This is the official website for the IEEE Computational Intelligence Society (CI
    npm run build
    ```
 
-## 🔄 Deployment & Contributing
-
-The website is automatically deployed to GitHub Pages using GitHub Actions when changes are pushed to the main branch. The deployment workflow is configured in `.github/workflows/deploy.yml`.
-
-### Contributing
-
-We welcome contributions to improve the website! If you'd like to contribute:
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes with clear commit messages
-4. Push to your branch
-5. Open a Pull Request with detailed documentation of your changes
-
-All pull requests will be reviewed within 2 business days. Please ensure your PR includes:
-- A clear description of the changes
-- Screenshots if UI changes are involved
-- Any relevant documentation updates
-- List of dependencies if new ones are added
-
 ## 📜 Project Structure
 
 ```
@@ -89,8 +73,7 @@ CIS/
 ## 👥 Team
 
 - **Chair**: Yassine Zorgui
-- **General Secretary**: Allani Mohamed
-- **HR Manager**: Tasnim Belhassen
+- **Vice Chair & Secretary**: Mohamed Allani
 - **Treasurer**: Louay Mhouachi
 
 ## 📞 Contact
@@ -98,6 +81,7 @@ CIS/
 You can reach us through:
 - [Facebook](https://www.facebook.com/profile.php?id=61567684887441)
 - [Discord](https://discord.gg/6qZvfp8Rfy)
+- [website](https://cis-isetbizerte.ieee.tn)
 - Email: zorguimohamedyassine@ieee.org
 
 ## 📄 License
