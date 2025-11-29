@@ -33,6 +33,15 @@ function TeamCis() {
             "linkedin": "",
             "ieee_email": "louay.mhouachi@ieee.org",
             "photo": "/team/louay_mhouachi.png"
+        },
+        {
+            "role": "Webmaster",
+            "name": "Kareem Chatti",
+            "instagram": "",
+            "facebook": "https://www.facebook.com/kareemchatti",
+            "linkedin": "https://www.linkedin.com/in/abdelkarim-chatti-7623a625a/",
+            "ieee_email": "karimchatti@ieee.org",
+            "photo": "/team/karim.jpg"
         }
     ]
     // this is the team members data of CIS ISET Bizerte SBC
