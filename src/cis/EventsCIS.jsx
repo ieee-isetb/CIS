@@ -8,62 +8,62 @@ const events = [
         title: "Our Booth",
         folder: "Booth",
         images: [
-            "/CIS/events/Booth/467766352_122115546560589496_7980927003317713407_n.jpg",
-            "/CIS/events/Booth/468048405_122115547028589496_1787068702099165062_n.jpg",
-            "/CIS/events/Booth/468054482_122115547088589496_6741034518343147113_n.jpg",
-            "/CIS/events/Booth/468097218_122115546524589496_4114004259634006134_n.jpg",
-            "/CIS/events/Booth/468222470_122115546146589496_7810775395767742454_n.jpg"
+            "/events/Booth/467766352_122115546560589496_7980927003317713407_n.jpg",
+            "/events/Booth/468048405_122115547028589496_1787068702099165062_n.jpg",
+            "/events/Booth/468054482_122115547088589496_6741034518343147113_n.jpg",
+            "/events/Booth/468097218_122115546524589496_4114004259634006134_n.jpg",
+            "/events/Booth/468222470_122115546146589496_7810775395767742454_n.jpg"
         ]
     },
     {
         title: "Code It Up 5.0",
         folder: "code_it_up",
         images: [
-            "/CIS/events/code_it_up/494075051_675018355259051_7459268666068918352_n.jpg",
-            "/CIS/events/code_it_up/codeitup (179 of 255).jpg",
-            "/CIS/events/code_it_up/codeitup (32 of 255).jpg",
-            "/CIS/events/code_it_up/codeitupp2 (126 of 188).jpg",
-            "/CIS/events/code_it_up/codeitupp2 (180 of 188).jpg",
-            "/CIS/events/code_it_up/codeitupp2 (29 of 188).jpg"
+            "/events/code_it_up/494075051_675018355259051_7459268666068918352_n.jpg",
+            "/events/code_it_up/codeitup (179 of 255).jpg",
+            "/events/code_it_up/codeitup (32 of 255).jpg",
+            "/events/code_it_up/codeitupp2 (126 of 188).jpg",
+            "/events/code_it_up/codeitupp2 (180 of 188).jpg",
+            "/events/code_it_up/codeitupp2 (29 of 188).jpg"
         ]
     },
     {
         title: "AWS Bootcamp",
         folder: "aws_bootcamp",
         images: [
-            "/CIS/events/aws_bootcamp/480906381_122134381526589496_5140800072676475620_n.jpg",
-            "/CIS/events/aws_bootcamp/481122158_122133290810589496_5138717774382568459_n.jpg"
+            "/events/aws_bootcamp/480906381_122134381526589496_5140800072676475620_n.jpg",
+            "/events/aws_bootcamp/481122158_122133290810589496_5138717774382568459_n.jpg"
         ]
     },
     {
         title: "ABC's of AI",
         folder: "abc_ai",
         images: [
-            "/CIS/events/abc_ai/pic (11 of 67).png",
-            "/CIS/events/abc_ai/pic (4 of 67).png",
-            "/CIS/events/abc_ai/pic (44 of 67).png",
-            "/CIS/events/abc_ai/pic (45 of 67).png",
-            "/CIS/events/abc_ai/pic (64 of 67).png"
+            "/events/abc_ai/pic (11 of 67).png",
+            "/events/abc_ai/pic (4 of 67).png",
+            "/events/abc_ai/pic (44 of 67).png",
+            "/events/abc_ai/pic (45 of 67).png",
+            "/events/abc_ai/pic (64 of 67).png"
         ]
     },
     {
         title: "AI and the Art of Time Mastery",
         folder: "AI_and_the_art_of_time_mastery",
         images: [
-            "/CIS/events/AI_and_the_art_of_time_mastery/496299613_122148543872589496_7986176113008782413_n.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-12.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-3.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-41.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-48.jpg",
-            "/CIS/events/AI_and_the_art_of_time_mastery/pic-5.jpg"
+            "/events/AI_and_the_art_of_time_mastery/496299613_122148543872589496_7986176113008782413_n.jpg",
+            "/events/AI_and_the_art_of_time_mastery/pic-12.jpg",
+            "/events/AI_and_the_art_of_time_mastery/pic-3.jpg",
+            "/events/AI_and_the_art_of_time_mastery/pic-41.jpg",
+            "/events/AI_and_the_art_of_time_mastery/pic-48.jpg",
+            "/events/AI_and_the_art_of_time_mastery/pic-5.jpg"
         ]
     },
     {
         title: "Online Workshops",
         folder: "online_workshops",
         images: [
-            "/CIS/events/online_workshops/524590388_122159761442589496_7121259663525695518_n.jpg",
-            "/CIS/events/online_workshops/537811112_122163769280589496_7423765764293487574_n.jpg"
+            "/events/online_workshops/524590388_122159761442589496_7121259663525695518_n.jpg",
+            "/events/online_workshops/537811112_122163769280589496_7423765764293487574_n.jpg"
         ]
     }
 ];
