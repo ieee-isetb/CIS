@@ -132,6 +132,7 @@ function TeamCIS() {
                         The dedicated individuals driving innovation and excellence at IEEE CIS
                     </p>
                 </div>
+                
 
                 {/* Changed: From PixelHoverCard to standard grid with CSS hover effects */}
                 <div className="team-grid">
