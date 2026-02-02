@@ -21,9 +21,7 @@ This is the official website for the IEEE Computational Intelligence Society (CI
 - [GSAP](https://greensock.com/gsap/) - Animations
 - [React Typed](https://www.npmjs.com/package/react-typed) - Typing animations
 
-
 [<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
-
 
 ## 📋 Prerequisites
 
@@ -33,20 +31,24 @@ This is the official website for the IEEE Computational Intelligence Society (CI
 ## 🚀 Getting Started
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/ieee-isetb/CIS.git
    cd CIS
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start development server**
+
    ```bash
    npm run dev
    ```
+
    The site will be available at `http://localhost:5173/CIS/`
 
 4. **Build for production**
@@ -72,17 +74,24 @@ CIS/
 
 ## 👥 Team
 
-- **Chair**: Yassine Zorgui
-- **Vice Chair & Secretary**: Mohamed Allani
-- **Treasurer**: Louay Mhouachi
+- **Chair**: Kareem Chatti
+- **Secretary**: May Jaballah
+- **Webmaster**: Mouhamed Rayen Brahmi
+
+## 🎯 Our Vision & Mission
+
+**Vision**: To build a leading student community at ISET Bizerte that empowers members with strong foundations and practical skills in artificial intelligence and computational intelligence.
+
+**Mission**: Through continuous learning and hands-on initiatives, we aim to equip students with expertise in machine learning, deep learning, evolutionary algorithms, and intelligent systems, enabling them to understand, develop, and apply AI technologies to real-world challenges.
 
 ## 📞 Contact
 
 You can reach us through:
+
 - [Facebook](https://www.facebook.com/profile.php?id=61567684887441)
 - [Discord](https://discord.gg/6qZvfp8Rfy)
-- [website](https://cis-isetbizerte.ieee.tn)
-- Email: zorguimohamedyassine@ieee.org
+- [Website](https://cis-isetbizerte.ieee.tn)
+- Email: ieeecisisetbizerte@gmail.com
 
 ## 📄 License
 
