@@ -45,8 +45,7 @@ function AboutCIS() {
                         <p className="about-description">
                             Based at ISET Bizerte, the Computational Intelligence Society (CIS) chapter 
                             is dedicated to advancing knowledge and innovation in computational intelligence, 
-                            artificial intelligence, and related technologies. We provide students and 
-                            professionals with opportunities to explore emerging trends, develop technical 
+                            artificial intelligence, and related technologies. We provide students with opportunities to explore emerging trends, develop technical 
                             skills, and engage in impactful projects.
                         </p>
                     </div>

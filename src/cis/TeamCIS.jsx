@@ -37,44 +37,34 @@ function TeamCIS() {
     /* Same team data as before - just cleaned up structure */
     const teamMembers = [
         {
-            role: "Chair & Founder",
-            name: "Yassine Zorgui",
-            description: "Leading the chapter with vision and dedication to advance computational intelligence.",
-            instagram: "",
-            facebook: "https://www.facebook.com/mohamedyassine.zorgui",
-            linkedin: "https://www.linkedin.com/in/mohamed-yassine-zorgui-849211294/",
-            email: "Zorguimohamedyassine@ieee.org",
-            photo: "/team/yassine_zorgui.jpeg"
-        },
-        {
-            role: "Vice Chair",
-            name: "Allani Mohamed",
-            description: "Supporting leadership initiatives and driving chapter growth.",
-            instagram: "https://www.instagram.com/all4n1_/",
-            facebook: "https://www.facebook.com/all4n1",
-            linkedin: "https://www.linkedin.com/in/allani-mohamed-570952366/",
-            email: "allani_mohamed@ieee.org",
-            photo: "/team/allani_mohamed.png"
-        },
-        {
-            role: "Treasurer",
-            name: "Louay Mhouachi",
-            description: "Managing financial operations and ensuring sustainable growth.",
-            instagram: "https://www.instagram.com/louay.mhouachy/",
-            facebook: "https://www.instagram.com/louay.mhouachi/",
-            linkedin: "",
-            email: "louay.mhouachi@ieee.org",
-            photo: "/team/louay_mhouachi.png"
-        },
-        {
-            role: "Webmaster",
+            role: "Chair",
             name: "Kareem Chatti",
-            description: "Building and maintaining the digital presence of our chapter.",
+            description: "Leading the chapter with vision and dedication to advance computational intelligence.",
             instagram: "",
             facebook: "https://www.facebook.com/kareemchatti",
             linkedin: "https://www.linkedin.com/in/abdelkarim-chatti-7623a625a/",
             email: "karimchatti@ieee.org",
             photo: "/team/karim.jpg"
+        },
+        {
+            role: "Secretary",
+            name: "May Jaballah",
+            description: "Managing communications and organizational activities for the chapter.",
+            instagram: "",
+            facebook: "https://www.facebook.com/may.jaballah.56",
+            linkedin: "https://www.linkedin.com/in/may-jaballah/",
+            email: "mayjaballah@gmail.com",
+            photo: "/team/may.jpg"
+        },
+        {
+            role: "Webmaster",
+            name: "Mouhamed Rayen Brahmi",
+            description: "Building and maintaining the digital presence of our chapter.",
+            instagram: "",
+            facebook: "https://www.facebook.com/mouhamed.rayen.brahmi.2025",
+            linkedin: "https://www.linkedin.com/in/mouhamed-rayen-brahmi",
+            email: "brahmi.mouhamedrayen@hotmail.com",
+            photo: "/team/rayen.jpg"
         }
     ];
 
