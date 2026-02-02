@@ -39,7 +39,7 @@ function TeamCIS() {
         {
             role: "Chair",
             name: "Kareem Chatti",
-            description: "Leading the chapter with vision and dedication to advance computational intelligence.",
+            description: "CO-Founder of The IEEE ISETB SB CIS chapter. Leading the chapter with vision and dedication to advance computational intelligence.",
             instagram: "",
             facebook: "https://www.facebook.com/kareemchatti",
             linkedin: "https://www.linkedin.com/in/abdelkarim-chatti-7623a625a/",

@@ -74,19 +74,20 @@ function AboutCIS() {
                         <h3>Our Mission</h3>
                         <h4>Empowering AI Excellence</h4>
                         <p>
-                            To empower students to explore the full spectrum of intelligence, human and 
-                            artificial. Through learning, collaboration, and hands on innovation, we 
-                            cultivate leaders who design technology with empathy, creativity, and purpose.
+                            Through continuous learning and hands-on initiatives, we aim to equip students 
+                            with expertise in machine learning, deep learning, evolutionary algorithms, and 
+                            intelligent systems, enabling them to understand, develop, and apply AI 
+                            technologies to real-world challenges.
                         </p>
                     </div>
                     <div className="mv-card">
                         <div className="mv-icon">🔭</div>
                         <h3>Our Vision</h3>
-                        <h4>Shaping Tomorrow's Intelligence</h4>
+                        <h4>Building a Leading AI Community</h4>
                         <p>
-                            To be recognized as the space where intelligence comes alive, where human 
-                            curiosity meets computational power, and together they shape the future of 
-                            Artificial Intelligence.
+                            To build a leading student community at ISET Bizerte that empowers members 
+                            with strong foundations and practical skills in artificial intelligence and 
+                            computational intelligence.
                         </p>
                     </div>
                 </div>
