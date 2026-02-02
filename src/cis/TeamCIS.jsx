@@ -82,6 +82,7 @@ function TeamCIS() {
             email: "mayjaballah@gmail.com",
             photo: "/team/may.jpg"
         },
+        
         {
             role: "Webmaster",
             name: "Mouhamed Rayen Brahmi",
