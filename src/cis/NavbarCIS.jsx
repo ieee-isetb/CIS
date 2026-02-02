@@ -1,92 +1,109 @@
+/* 
+ * REDESIGNED: Complete rewrite of NavbarCIS
+ * - Removed: Dark mode toggle functionality (was toggling between light/dark themes)
+ * - Added: Fixed header that changes style on scroll
+ * - Added: Mobile hamburger menu for responsive design
+ * - Changed: From complex nav structure to simpler fixed header layout
+ * - Added: Games tab that opens a separate widget (for hackathon events)
+ */
 import { useState, useEffect } from "react";
 import logoDark from '../assets/cis_white_logo.png'
-import logoLight from '../assets/cis_black_logo.png';
-import logoMobile from "../assets/cis_mobile_logo.png"
 import ScrollIntoView from 'react-scroll-into-view';
 import "./NavbarCIS.css";
 
-// Simple inline SVGs for sun/moon
-const MoonIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
-    viewBox="0 0 24 24" width="20" height="20">
-    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-  </svg>
-);
-
-const SunIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16"> 
-    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
-
-  </svg>
-);
-
-function NavbarCIS() {
-  const [darkMode, setDarkMode] = useState(false);
+/* Added: onOpenGames prop to trigger the Games widget from App.jsx */
+function NavbarCIS({ onOpenGames }) {
+  /* Changed: Removed darkMode state, added mobileMenuOpen state instead */
   const [scrolled, setScrolled] = useState(false);
-  const mobileLogoScreenWidth = 800 //px
-  const [isMobile, setIsMobile] = useState(window.innerWidth < mobileLogoScreenWidth);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const registrationFormURL = "https://forms.gle/8toQ46baTj2yQh9b9";
 
+  /* New: Scroll detection to add background blur effect when scrolled */
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
+      const isScrolled = window.scrollY > 50;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
-        document.body.classList.toggle('has-fixed-nav', isScrolled);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.body.classList.remove('has-fixed-nav');
     };
   }, [scrolled]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < mobileLogoScreenWidth);
-    };
+  /* Changed: Simplified nav links array - removed icon properties */
+  const navLinks = [
+    { label: 'Home', selector: '#home' },
+    { label: 'About', selector: '#about' },
+    { label: 'Statistics', selector: '#stats' },
+    { label: 'Events', selector: '#events' },
+    { label: 'Team', selector: '#team' },
+    { label: 'Contact', selector: '#contact' },
+  ];
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle("dark", !darkMode);
+  /* New: Handler to open Games widget and close mobile menu */
+  const handleGamesClick = () => {
+    setMobileMenuOpen(false);
+    if (onOpenGames) {
+      onOpenGames();
+    }
   };
 
   return (
-    <div className={`navbar-cis ${scrolled ? 'navbar-scrolled' : ''}`}>
-      {!isMobile && (<img src={darkMode ? logoDark : logoLight} alt="Logo" className="nav-logo"/>)}
-      {isMobile && (<img src={logoMobile} alt="Logo" className="nav-logo mobile"/>)}
-      <nav>
-        <ul className="nav-links">
-          <li><ScrollIntoView selector='#home'><button>Home</button></ScrollIntoView></li>
-          <li><ScrollIntoView selector='#about'><button>About us</button></ScrollIntoView></li>
-          <li><ScrollIntoView selector='#stats'><button>Statistics</button></ScrollIntoView></li>
-          <li><ScrollIntoView selector='#events'><button>Events</button></ScrollIntoView></li>
-          <li><ScrollIntoView selector='#team'><button>Team</button></ScrollIntoView></li>
-          <li><ScrollIntoView selector='#contact'><button>Contact</button></ScrollIntoView></li>
+    /* Changed: From <nav> to <header>, added scrolled class toggle */
+    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+      <div className="navbar-container">
+        {/* Simplified: Removed dark/light logo toggle, using only dark logo */}
+        <div className="navbar-logo">
+          <img src={logoDark} alt="IEEE CIS Logo" />
+        </div>
+        
+        {/* New: Mobile menu toggle class for responsive design */}
+        <nav className={`navbar-nav ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+          <ul className="nav-links">
+            {navLinks.map((link) => (
+              <li key={link.selector}>
+                <ScrollIntoView selector={link.selector}>
+                  {/* Changed: Closes mobile menu on click */}
+                  <button onClick={() => setMobileMenuOpen(false)}>
+                    {link.label}
+                  </button>
+                </ScrollIntoView>
+              </li>
+            ))}
+            {/* New: Games tab - opens separately as a widget */}
+            <li>
+              <button onClick={handleGamesClick} className="games-nav-btn">
+                🎮 Games
+              </button>
+            </li>
+          </ul>
+          {/* Changed: "Join Us" button now styled as gradient button like reference */}
+          <a 
+            href={registrationFormURL} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="join-btn"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Join Us
+          </a>
+        </nav>
 
-          {/* Dark Mode Toggle Icon */}
-          <li>
-            <button className="dark-toggle-btn" onClick={toggleDarkMode}>
-              {darkMode ? <SunIcon /> : <MoonIcon />}
-            </button>
-          </li>
-        </ul>
-
-        {/* Join Us Button - Separate from main navigation */}
-        <a href={registrationFormURL} 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           className="join-us-btn">
-          Join Us
-        </a>
-      </nav>
-    </div>
+        {/* New: Hamburger menu button for mobile - wasn't in original */}
+        <button 
+          className={`mobile-menu-btn ${mobileMenuOpen ? 'active' : ''}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
   );
 }
 

@@ -1,46 +1,114 @@
-import Silk from "../animations/SilkBG";
+/* 
+ * REDESIGNED: Complete rewrite of TitleCIS (Hero Section)
+ * - Removed: SilkBG animated background component
+ * - Removed: Old structure with hero-overlay, hero-text-content
+ * - Added: Pure CSS background with gradient, grid, and glow effects
+ * - Added: Badge above title, stats preview, scroll indicator
+ * - Changed: Title now uses typing animation with staged reveals
+ */
 import "./TitleCIS.css";
 import { ReactTyped } from "react-typed";
 import { useState } from "react";
 
 function TitleCIS(){
-    const [quoteType, setQuoteType] = useState(false);
-    const [joinUs, setJoinUs] = useState(false);
-    const registrationFormURL = "https://forms.gle/8toQ46baTj2yQh9b9"; // Replace with your actual registration form URL
+    /* New: States for staged animation - subtitle shows after title, buttons after subtitle */
+    const [showSubtitle, setShowSubtitle] = useState(false);
+    const [showButtons, setShowButtons] = useState(false);
+    const registrationFormURL = "https://forms.gle/8toQ46baTj2yQh9b9";
+    
     return (
-        <div id="home" className="w-[100%] h-[500px] relative">
-            <Silk
-            speed={5}
-            scale={1}
-            color="#3EA2DC"
-            noiseIntensity={1.5}
-            rotation={0}
-            />
-        <p className="text-white font-['Times_New_Roman'] text-center text-4xl font-bold absolute sm:top-1/4 top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] px-2 sm:px-0">
-            <ReactTyped
-             strings={["IEEE Computational Intelligence Society<br />ISETB Student Branch Chapter"]}
-             typeSpeed={50}
-             cursorChar="_"
-             showCursor={true}
-             onComplete={(self) => {setQuoteType(true), self.cursor.remove()}}
-             />
-        </p>
-        {quoteType && (
-        <p className="cis-quote text-white font-['Times_New_Roman'] text-center text-2xl absolute sm:top-1/2 top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] px-2 sm:px-0">
-            <ReactTyped
-             strings={["Where Intelligence Meets Innovation"]}
-             typeSpeed={50}
-             cursorChar="_"
-             showCursor={false}
-             onComplete={() => {setJoinUs(true)}}
-             />
-        </p> )}
-        {joinUs && (
-            <a href={registrationFormURL} target="_blank" rel="noopener noreferrer" className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:bg-transparent text-white font-['Arima'] font-[700] text-xl px-5 py-2 rounded-full bg-[#3ea2dcb8] hover:bg-[#3ea2dcb8] border-white border-2 transition-colors cursor-pointer">
-                Join Us
-            </a>
-        )}
-        </div>
+        /* Changed: From <div className="hero-section"> with SilkBG child to <section> with CSS backgrounds */
+        <section id="home" className="hero-section">
+            {/* New: CSS-only background - replaces SilkBG animation component */}
+            <div className="hero-bg">
+                <div className="hero-gradient"></div>
+                <div className="hero-grid"></div>
+                <div className="hero-glow"></div>
+            </div>
+
+            {/* Restructured: Simpler content container */}
+            <div className="hero-content">
+                {/* New: Badge element like reference site - wasn't in original */}
+                <div className="hero-badge">
+                    <span className="badge-dot"></span>
+                    EMPOWERING FUTURE INNOVATORS IN AI AND MACHINE LEARNING
+                </div>
+
+                {/* Changed: Title now uses ReactTyped for typewriter effect */}
+                <h1 className="hero-title">
+                    <ReactTyped
+                        strings={["IEEE Computational<br/>Intelligence Society"]}
+                        typeSpeed={40}
+                        cursorChar="|"
+                        showCursor={true}
+                        onComplete={(self) => {
+                            setShowSubtitle(true);
+                            self.cursor.remove();
+                        }}
+                    />
+                </h1>
+
+                {/* New: Subtitle appears after title finishes typing */}
+                {showSubtitle && (
+                    <p className="hero-subtitle">
+                        <ReactTyped
+                            strings={["ISET Bizerte Student Branch Chapter"]}
+                            typeSpeed={30}
+                            cursorChar="|"
+                            showCursor={false}
+                            onComplete={() => setShowButtons(true)}
+                        />
+                    </p>
+                )}
+
+                {/* Changed: Buttons now appear after subtitle, styled with gradient */}
+                {showButtons && (
+                    <div className="hero-buttons animate-fade-in">
+                        <a 
+                            href={registrationFormURL} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn-primary"
+                        >
+                            <span>Join Us</span>
+                            {/* New: Arrow icon in button */}
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#about" className="btn-secondary">
+                            Learn More
+                        </a>
+                    </div>
+                )}
+
+                {/* New: Stats preview in hero - wasn't in original design */}
+                <div className={`hero-stats ${showButtons ? 'animate-fade-in' : 'opacity-0'}`}>
+                    <div className="stat-item">
+                        <span className="stat-number">20+</span>
+                        <span className="stat-label">Members</span>
+                    </div>
+                    <div className="stat-divider"></div>
+                    <div className="stat-item">
+                        <span className="stat-number">5+</span>
+                        <span className="stat-label">Workshops</span>
+                    </div>
+                    <div className="stat-divider"></div>
+                    <div className="stat-item">
+                        <span className="stat-number">2025</span>
+                        <span className="stat-label">Established</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* New: Scroll indicator animation - wasn't in original */}
+            <div className="scroll-indicator">
+                <div className="mouse">
+                    <div className="wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </div>
+        </section>
     );
 }
 

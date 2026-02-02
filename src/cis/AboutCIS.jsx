@@ -1,80 +1,99 @@
-import cis_light from '../assets/cis_black_logo.png';
-import cis_dark from '../assets/cis_white_logo.png';
-import { useState, useEffect } from 'react';
+import cis_logo from '../assets/cis_white_logo.png';
 import './AboutCIS.css';
 
-const emojis = ['🔬', '🤖', '✨', '🧠', '🚀', '💻', '🧪'];
-
 function AboutCIS() {
-    const [hovered, setHovered] = useState(false);
-    const [darkMode, setDarkMode] = useState(document.body.classList.contains("dark"));
+    // Feature cards data - replaces the old emoji burst animation with static cards
+    const features = [
+        {
+            icon: '🔬',
+            title: 'Research',
+            description: 'Driving innovative research in AI, machine learning, and intelligent systems.'
+        },
+        {
+            icon: '🤝',
+            title: 'Community',
+            description: 'Creating a supportive network of like-minded tech enthusiasts and researchers.'
+        },
+        {
+            icon: '💡',
+            title: 'Innovation',
+            description: 'Transforming theoretical knowledge into practical, impactful solutions.'
+        }
+    ];
 
-    // Listen for changes to the "dark" class on body
-    useEffect(() => {
-        const observer = new MutationObserver(() => {
-            setDarkMode(document.body.classList.contains("dark"));
-        });
-        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-        return () => observer.disconnect();
-    }, []);
-
-    // Calculate burst positions (angles and distances)
-    const burstPositions = emojis.map((_, i) => {
-        const angle = (i / emojis.length) * 2 * Math.PI;
-        const distance = 170; // px, how far emojis fly out
-        return {
-            x: Math.cos(angle) * distance,
-            y: Math.sin(angle) * distance,
-        };
-    });
     return (
-        <div id="about" className='h-[400px]'>
-            <div className="text-center pt-7 pb-9 font-['Arima'] font-semibold text-5xl underline text-[#3EA2DC]">
-                About us</div>
-            <div className='grid grid-cols-2 items-center'>
-                <div className="cursor-pointer relative w-[50%] justify-self-center sm:block hidden"
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
-                    style={{ minHeight: '200px' }}
-                >
-                    <div className='absolute z-[5] left-[30%] top-[13%] px-[25%] py-[17%]'></div>
-                    <img className="absolute z-10 w-[70%] ml-10 mt-5" src={darkMode ? cis_dark : cis_light} alt="CIS Logo" />
-                    {emojis.map((emoji, i) => (
-                        <span
-                            key={i}
-                            className={`emoji-burst`}
-                            style={{
-                                left: '40%',
-                                top: '30%', // start under image
-                                transform: hovered
-                                    ? `translate(${burstPositions[i].x}px, ${burstPositions[i].y}px)`
-                                    : 'translate(0, 0)',
-                                transition: hovered
-                                    ? 'transform 0.4s cubic-bezier(.68,-0.55,.27,1.55)'
-                                    : 'transform 0.3s',
-                                opacity: hovered ? 1 : 0,
-                                fontSize: '2rem',
-                                position: 'absolute',
-                                pointerEvents: 'none'
-                            }}
-                        >
-                            {emoji}
-                        </span>
-                    ))}
-                </div>
-                <div className="font-['Arima'] sm:ml-3 description-container">
-                    <p className='font-normal text-2xl mt-2 text-["Arya"]'>IEEE <b className='font-["Arima"] font-semibold text-[#3EA2DC]'>CIS</b> ISET Bizerte SBC</p>
-                    <p className='text-justify w-[70%] mt-5 text-[#666] dark_about_cis'>
-                        The Computational Intelligence Society (CIS) chapter at ISET
-                        Bizerte, affiliated with IEEE, is dedicated to advancing knowledge
-                        and innovation in computational intelligence, artificial intelligence,
-                        and related technologies. We provide students and professionals with opportunities to explore emerging trends, develop technical skills,
-                        and engage in impactful projects.
+        // Changed from <div> to <section> for better semantics
+        <section id="about" className="about-section">
+            <div className="container">
+                {/* New: Added a tag badge above the title like the reference site */}
+                <div className="about-header">
+                    <span className="section-tag">WHO WE ARE</span>
+                    <h2 className="section-title">About IEEE CIS Society</h2>
+                    <p className="section-subtitle">
+                        Your Gateway to Computational Intelligence Excellence
                     </p>
                 </div>
+
+                {/* Restructured: Now uses a 2-column grid instead of the old layout */}
+                <div className="about-content">
+                    <div className="about-text">
+                        <p className="about-lead">
+                            We are a student-led chapter of the Institute of Electrical and Electronics 
+                            Engineers (IEEE) Computational Intelligence Society—a world-leading organization 
+                            dedicated to advancing computational intelligence and technology.
+                        </p>
+                        <p className="about-description">
+                            Based at ISET Bizerte, the Computational Intelligence Society (CIS) chapter 
+                            is dedicated to advancing knowledge and innovation in computational intelligence, 
+                            artificial intelligence, and related technologies. We provide students and 
+                            professionals with opportunities to explore emerging trends, develop technical 
+                            skills, and engage in impactful projects.
+                        </p>
+                    </div>
+                    {/* New: Logo now has a glowing background effect */}
+                    <div className="about-logo-container">
+                        <div className="logo-glow"></div>
+                        <img src={cis_logo} alt="IEEE CIS Logo" className="about-logo" />
+                    </div>
+                </div>
+
+                {/* New: Added feature cards grid - wasn't in the original */}
+                <div className="features-grid">
+                    {features.map((feature, index) => (
+                        <div key={index} className="feature-card glass-card">
+                            <span className="feature-icon">{feature.icon}</span>
+                            <h3 className="feature-title">{feature.title}</h3>
+                            <p className="feature-description">{feature.description}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* New: Added Mission & Vision section - wasn't in the original */}
+                <div className="mission-vision">
+                    <div className="mv-card">
+                        <div className="mv-icon">🎯</div>
+                        <h3>Our Mission</h3>
+                        <h4>Empowering AI Excellence</h4>
+                        <p>
+                            To empower students to explore the full spectrum of intelligence, human and 
+                            artificial. Through learning, collaboration, and hands on innovation, we 
+                            cultivate leaders who design technology with empathy, creativity, and purpose.
+                        </p>
+                    </div>
+                    <div className="mv-card">
+                        <div className="mv-icon">🔭</div>
+                        <h3>Our Vision</h3>
+                        <h4>Shaping Tomorrow's Intelligence</h4>
+                        <p>
+                            To be recognized as the space where intelligence comes alive, where human 
+                            curiosity meets computational power, and together they shape the future of 
+                            Artificial Intelligence.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    )
+        </section>
+    );
 }
 
 export default AboutCIS;

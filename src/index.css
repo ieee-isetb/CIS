@@ -1,5 +1,19 @@
+/* 
+ * GLOBAL STYLES - COMPLETELY REDESIGNED
+ * 
+ * This file was rewritten to implement the new dark theme design system.
+ * 
+ * MAJOR CHANGES:
+ * - Added CSS custom properties (variables) for consistent theming
+ * - Changed from light theme to dark theme (#0a0a0a background)
+ * - Added custom scrollbar styling
+ * - Added glass-morphism card styles (.glass-card)
+ * - Added gradient button styles (.btn-primary, .btn-secondary)
+ * - Added consistent section heading styles
+ */
 @import 'tailwindcss';
 
+/* Font imports - kept from original */
 @font-face {
     font-family: "Arima";
     src: url("fonts/ArimaKoshi-Regular.otf") format("opentype");
@@ -42,6 +56,166 @@
     font-style: normal;
 }
 
-body{
+/* NEW: CSS Variables for consistent theming throughout the site */
+:root {
+    --primary-blue: #0077B5;        /* IEEE CIS brand blue */
+    --primary-light: #00A3E0;       /* Lighter accent blue */
+    --dark-bg: #0a0a0a;             /* Main background - very dark */
+    --dark-surface: #111111;        /* Slightly lighter surface */
+    --dark-card: #1a1a1a;           /* Card backgrounds */
+    --text-primary: #ffffff;        /* Main text - white */
+    --text-secondary: #a0a0a0;      /* Secondary text - gray */
+    --text-muted: #666666;          /* Muted text */
+    --accent-gradient: linear-gradient(135deg, #0077B5 0%, #00A3E0 100%); /* Button gradient */
+    --border-color: rgba(255, 255, 255, 0.1); /* Subtle borders */
+}
+
+/* Reset - kept similar to original */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* CHANGED: Body now uses dark theme colors */
+body {
     overflow-x: hidden !important;
+    background-color: var(--dark-bg);  /* Was likely light before */
+    color: var(--text-primary);        /* White text */
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+/* NEW: Custom scrollbar to match dark theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+
+/* NEW: Global link styles */
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+/* NEW: Consistent section title styling for all sections */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* NEW: Gradient underline for section titles */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-gradient);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* NEW: Section subtitle styling */
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+/* NEW: Glass-morphism card effect - used throughout the site */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);  /* Semi-transparent white */
+    backdrop-filter: blur(10px);             /* Blur effect */
+    border: 1px solid var(--border-color);   /* Subtle border */
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 20px 40px rgba(0, 119, 181, 0.1);
+}
+
+/* NEW: Primary button - gradient filled */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;                     /* Pill shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 119, 181, 0.3);
+    color: white;
+}
+
+/* NEW: Secondary button - outline style */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: var(--primary-blue);
+    font-weight: 600;
+    border: 2px solid var(--primary-blue);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* NEW: Centered container with max-width */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* NEW: Consistent section padding */
+section {
+    padding: 5rem 0;
 }
