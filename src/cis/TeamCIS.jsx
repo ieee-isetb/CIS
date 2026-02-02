@@ -34,11 +34,37 @@ const InstagramIcon = () => (
 );
 
 function TeamCIS() {
+    /* Founders data - the people who started the chapter */
+    const founders = [
+        {
+            name: "Yassine Zorgui",
+            photo: "/team/yassine_zorgui.jpeg"
+        },
+        {
+            name: "Hadil Drissi",
+            photo: "/team/hadil.jpg"
+        },
+        {
+            name: "Karim Chatti",
+            photo: "/team/karim.jpg"
+        },
+        {
+            name: "Allani Mohamed",
+            photo: "/team/allani_mohamed.png"
+        },
+        {
+            name: "Louay Mhouachi",
+            photo: "/team/louay_mhouachi.png"
+        }
+        
+        
+    ];
+
     /* Same team data as before - just cleaned up structure */
     const teamMembers = [
         {
             role: "Chair",
-            name: "Kareem Chatti",
+            name: "Karim Chatti",
             description: "CO-Founder of The IEEE ISETB SB CIS chapter. Leading the chapter with vision and dedication to advance computational intelligence.",
             instagram: "",
             facebook: "https://www.facebook.com/kareemchatti",
@@ -72,6 +98,31 @@ function TeamCIS() {
         /* Changed: From <div> to <section> for better semantics */
         <section id="team" className="team-section">
             <div className="container">
+                {/* Founders Section */}
+                <div className="founders-section">
+                    <div className="founders-header">
+                        <span className="section-tag">THE VISIONARIES</span>
+                        <h2 className="section-title">Our Founders</h2>
+                        <p className="section-subtitle">
+                            Special thanks to the pioneers who established IEEE CIS ISETB and laid the foundation for our community
+                        </p>
+                    </div>
+
+                    <div className="founders-grid">
+                        {founders.map((founder, index) => (
+                            <div key={index} className="founder-card">
+                                <div className="founder-image">
+                                    <img src={founder.photo} alt={founder.name} />
+                                    <div className="founder-glow"></div>
+                                </div>
+                                <div className="founder-info">
+                                    <h3 className="founder-name">{founder.name}</h3>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
                 {/* New: Section header with tag badge like reference site */}
                 <div className="team-header">
                     <span className="section-tag">OUR PEOPLE</span>

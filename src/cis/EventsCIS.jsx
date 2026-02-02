@@ -7,8 +7,9 @@
  * - Changed: From slideshow to filterable grid like reference site
  * - Added: Modal popup to view event details when clicking on an event
  * - Added: Image gallery navigation in modal
+ * - Added: Loading state for images with smooth transitions
  */
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./EventsCIS.css";
 
 /* Changed: Events now have images array for gallery navigation */
@@ -101,33 +102,72 @@ function EventsCIS() {
     
     /* New: State for current image index in gallery */
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
+    /* New: State for image loading */
+    const [isImageLoading, setIsImageLoading] = useState(false);
+    
+    /* New: State for loaded images cache */
+    const [loadedImages, setLoadedImages] = useState({});
 
     /* New: Filter events based on selected category */
     const filteredEvents = activeCategory === "All" 
         ? events 
         : events.filter(event => event.category === activeCategory);
 
+    /* New: Preload images for an event */
+    const preloadImages = useCallback((event) => {
+        if (!event) return;
+        
+        event.images.forEach((src) => {
+            if (!loadedImages[src]) {
+                const img = new Image();
+                img.onload = () => {
+                    setLoadedImages(prev => ({ ...prev, [src]: true }));
+                };
+                img.src = src;
+            }
+        });
+    }, [loadedImages]);
+
     /* New: Open event modal */
     const openEventModal = (event) => {
         setSelectedEvent(event);
-        setCurrentImageIndex(0); // Reset to first image
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        setCurrentImageIndex(0);
+        setIsImageLoading(!loadedImages[event.images[0]]);
+        document.body.style.overflow = 'hidden';
+        // Preload all images for this event
+        preloadImages(event);
     };
 
     /* New: Close event modal */
     const closeEventModal = () => {
         setSelectedEvent(null);
         setCurrentImageIndex(0);
+        setIsImageLoading(false);
         document.body.style.overflow = 'auto'; // Re-enable scrolling
+    };
+
+    /* New: Handle image load complete */
+    const handleImageLoad = () => {
+        setIsImageLoading(false);
+        if (selectedEvent) {
+            setLoadedImages(prev => ({ 
+                ...prev, 
+                [selectedEvent.images[currentImageIndex]]: true 
+            }));
+        }
     };
 
     /* New: Navigate to previous image */
     const prevImage = (e) => {
         e.stopPropagation();
         if (selectedEvent) {
-            setCurrentImageIndex((prev) => 
-                prev === 0 ? selectedEvent.images.length - 1 : prev - 1
-            );
+            const newIndex = currentImageIndex === 0 
+                ? selectedEvent.images.length - 1 
+                : currentImageIndex - 1;
+            const newImageSrc = selectedEvent.images[newIndex];
+            setIsImageLoading(!loadedImages[newImageSrc]);
+            setCurrentImageIndex(newIndex);
         }
     };
 
@@ -135,15 +175,22 @@ function EventsCIS() {
     const nextImage = (e) => {
         e.stopPropagation();
         if (selectedEvent) {
-            setCurrentImageIndex((prev) => 
-                prev === selectedEvent.images.length - 1 ? 0 : prev + 1
-            );
+            const newIndex = currentImageIndex === selectedEvent.images.length - 1 
+                ? 0 
+                : currentImageIndex + 1;
+            const newImageSrc = selectedEvent.images[newIndex];
+            setIsImageLoading(!loadedImages[newImageSrc]);
+            setCurrentImageIndex(newIndex);
         }
     };
 
     /* New: Go to specific image */
     const goToImage = (index) => {
-        setCurrentImageIndex(index);
+        if (selectedEvent) {
+            const newImageSrc = selectedEvent.images[index];
+            setIsImageLoading(!loadedImages[newImageSrc]);
+            setCurrentImageIndex(index);
+        }
     };
 
     return (
@@ -178,7 +225,12 @@ function EventsCIS() {
                         /* New: Each event is now a card with image and content */
                         <div key={index} className="event-card" onClick={() => openEventModal(event)}>
                             <div className="event-image">
-                                <img src={event.images[0]} alt={event.title} />
+                                <img 
+                                    src={event.images[0]} 
+                                    alt={event.title} 
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                                 {/* New: Category badge overlay on image */}
                                 <div className="event-overlay">
                                     <span className="event-category">{event.category}</span>
@@ -214,18 +266,39 @@ function EventsCIS() {
                         
                         {/* Modal image with gallery navigation */}
                         <div className="modal-image">
-                            <img src={selectedEvent.images[currentImageIndex]} alt={selectedEvent.title} />
+                            {/* Loading spinner */}
+                            {isImageLoading && (
+                                <div className="image-loading">
+                                    <div className="loading-spinner"></div>
+                                    <span className="loading-text">Loading image...</span>
+                                </div>
+                            )}
+                            <img 
+                                key={currentImageIndex}
+                                src={selectedEvent.images[currentImageIndex]} 
+                                alt={selectedEvent.title}
+                                className={`modal-gallery-img ${isImageLoading ? 'loading' : 'loaded'}`}
+                                onLoad={handleImageLoad}
+                            />
                             <span className="modal-category">{selectedEvent.category}</span>
                             
                             {/* Navigation arrows - only show if more than 1 image */}
                             {selectedEvent.images.length > 1 && (
                                 <>
-                                    <button className="gallery-nav gallery-prev" onClick={prevImage}>
+                                    <button 
+                                        className={`gallery-nav gallery-prev ${isImageLoading ? 'disabled' : ''}`} 
+                                        onClick={prevImage}
+                                        disabled={isImageLoading}
+                                    >
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                             <path d="M15 18l-6-6 6-6"/>
                                         </svg>
                                     </button>
-                                    <button className="gallery-nav gallery-next" onClick={nextImage}>
+                                    <button 
+                                        className={`gallery-nav gallery-next ${isImageLoading ? 'disabled' : ''}`} 
+                                        onClick={nextImage}
+                                        disabled={isImageLoading}
+                                    >
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                             <path d="M9 18l6-6-6-6"/>
                                         </svg>
@@ -245,8 +318,9 @@ function EventsCIS() {
                                 {selectedEvent.images.map((_, index) => (
                                     <button
                                         key={index}
-                                        className={`gallery-dot ${index === currentImageIndex ? 'active' : ''}`}
+                                        className={`gallery-dot ${index === currentImageIndex ? 'active' : ''} ${isImageLoading ? 'disabled' : ''}`}
                                         onClick={() => goToImage(index)}
+                                        disabled={isImageLoading}
                                     />
                                 ))}
                             </div>

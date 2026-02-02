@@ -4,6 +4,96 @@
     background: var(--dark-surface);
 }
 
+/* Founders Section */
+.founders-section {
+    margin-bottom: 6rem;
+}
+
+.founders-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.founders-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.founder-card {
+    text-align: center;
+    transition: transform 0.4s ease;
+}
+
+.founder-card:hover {
+    transform: translateY(-8px);
+}
+
+.founder-image {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--border-color);
+    transition: all 0.4s ease;
+}
+
+.founder-card:hover .founder-image {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 30px rgba(0, 119, 181, 0.4);
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.founder-card:hover .founder-image img {
+    transform: scale(1.1);
+}
+
+.founder-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 119, 181, 0.3) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.founder-card:hover .founder-glow {
+    opacity: 1;
+}
+
+.founder-info {
+    padding: 0 0.5rem;
+}
+
+.founder-title {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 119, 181, 0.1);
+    border-radius: 20px;
+}
+
+.founder-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
 .team-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -123,6 +213,11 @@
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 2rem;
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -137,5 +232,27 @@
 
     .card-image {
         height: 250px;
+    }
+    
+    .founders-section {
+        margin-bottom: 4rem;
+    }
+    
+    .founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 1rem;
+    }
+    
+    .founder-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .founder-name {
+        font-size: 0.95rem;
+    }
+    
+    .founder-title {
+        font-size: 0.65rem;
     }
 }
