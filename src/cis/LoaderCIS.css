@@ -1,0 +1,438 @@
+/* 
+ * LoaderCIS - Preloader Styles
+ * A futuristic loading screen for IEEE CIS ISET Bizerte
+ */
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-overlay.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Background Effects */
+.loader-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.loader-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(0, 119, 181, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 119, 181, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(40px, 40px); }
+}
+
+.loader-glow-1 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 119, 181, 0.3) 0%, transparent 70%);
+    filter: blur(80px);
+    animation: floatGlow1 8s ease-in-out infinite;
+}
+
+.loader-glow-2 {
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(0, 163, 224, 0.25) 0%, transparent 70%);
+    filter: blur(80px);
+    animation: floatGlow2 6s ease-in-out infinite;
+}
+
+@keyframes floatGlow1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+@keyframes floatGlow2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-20px, 20px) scale(1.15); }
+}
+
+/* Particles */
+.loader-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat 4s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 0.5s; }
+.particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 1s; }
+.particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 1.5s; }
+.particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 2s; }
+.particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 0.3s; }
+.particle:nth-child(7) { left: 70%; top: 50%; animation-delay: 0.8s; }
+.particle:nth-child(8) { left: 80%; top: 20%; animation-delay: 1.3s; }
+.particle:nth-child(9) { left: 90%; top: 60%; animation-delay: 1.8s; }
+.particle:nth-child(10) { left: 15%; top: 50%; animation-delay: 2.3s; }
+.particle:nth-child(11) { left: 85%; top: 40%; animation-delay: 0.6s; }
+.particle:nth-child(12) { left: 45%; top: 85%; animation-delay: 1.1s; }
+
+@keyframes particleFloat {
+    0% { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(-30px) scale(1);
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-50px) scale(0);
+    }
+}
+
+/* Main Content */
+.loader-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Logo Container */
+.loader-logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Orbital Rings */
+.loader-orbit {
+    position: absolute;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    animation: orbitRotate linear infinite;
+}
+
+.loader-orbit-1 {
+    width: 180px;
+    height: 180px;
+    border-top-color: var(--primary-blue);
+    border-right-color: var(--primary-blue);
+    animation-duration: 3s;
+}
+
+.loader-orbit-2 {
+    width: 220px;
+    height: 220px;
+    border-bottom-color: var(--primary-light);
+    border-left-color: var(--primary-light);
+    animation-duration: 4s;
+    animation-direction: reverse;
+}
+
+.loader-orbit-3 {
+    width: 260px;
+    height: 260px;
+    border-top-color: rgba(0, 119, 181, 0.3);
+    border-right-color: rgba(0, 119, 181, 0.3);
+    animation-duration: 5s;
+}
+
+@keyframes orbitRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Orbit Dots */
+.orbit-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-light), 0 0 20px var(--primary-blue);
+}
+
+.loader-orbit-1 .orbit-dot { top: -4px; left: 50%; transform: translateX(-50%); }
+.loader-orbit-2 .orbit-dot { bottom: -4px; left: 50%; transform: translateX(-50%); }
+.loader-orbit-3 .orbit-dot { top: 50%; right: -4px; transform: translateY(-50%); }
+
+/* Logo */
+.loader-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(0, 119, 181, 0.5));
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% { 
+        transform: scale(1);
+        filter: drop-shadow(0 0 30px rgba(0, 119, 181, 0.5));
+    }
+    50% { 
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 50px rgba(0, 163, 224, 0.7));
+    }
+}
+
+/* Text */
+.loader-text {
+    text-align: center;
+}
+
+.loader-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+.loader-title span {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.loader-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    animation: textFade 2s ease-in-out infinite;
+}
+
+@keyframes textFade {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Progress Section */
+.loader-progress-section {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Progress Bar */
+.loader-progress-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-light));
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.loader-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    animation: progressShine 1.5s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0% { transform: translateX(-50px); }
+    100% { transform: translateX(100px); }
+}
+
+/* Progress Percentage */
+.loader-percentage {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Inter', monospace;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Status Text */
+.loader-status {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.loader-status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    animation: statusBlink 1s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Neural Network Lines */
+.loader-neural {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.neural-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-blue), transparent);
+    opacity: 0.3;
+    animation: neuralPulse 3s ease-in-out infinite;
+}
+
+.neural-line:nth-child(1) {
+    top: 30%;
+    left: -100%;
+    width: 300%;
+    animation-delay: 0s;
+}
+
+.neural-line:nth-child(2) {
+    top: 50%;
+    left: -100%;
+    width: 300%;
+    animation-delay: 1s;
+}
+
+.neural-line:nth-child(3) {
+    top: 70%;
+    left: -100%;
+    width: 300%;
+    animation-delay: 2s;
+}
+
+@keyframes neuralPulse {
+    0% { transform: translateX(0); opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { transform: translateX(33.33%); opacity: 0; }
+}
+
+/* Data Streams */
+.data-stream {
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(180deg, transparent, var(--primary-light), transparent);
+    opacity: 0.5;
+    animation: dataStream 2s linear infinite;
+}
+
+.data-stream:nth-child(1) { left: 5%; animation-delay: 0s; }
+.data-stream:nth-child(2) { left: 15%; animation-delay: 0.3s; }
+.data-stream:nth-child(3) { left: 25%; animation-delay: 0.6s; }
+.data-stream:nth-child(4) { left: 75%; animation-delay: 0.9s; }
+.data-stream:nth-child(5) { left: 85%; animation-delay: 1.2s; }
+.data-stream:nth-child(6) { left: 95%; animation-delay: 1.5s; }
+
+@keyframes dataStream {
+    0% { 
+        top: -30px; 
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% { 
+        top: 100%; 
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .loader-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .loader-orbit-1 {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .loader-orbit-2 {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .loader-orbit-3 {
+        width: 190px;
+        height: 190px;
+    }
+    
+    .loader-title {
+        font-size: 1.2rem;
+    }
+    
+    .loader-progress-section {
+        width: 250px;
+    }
+    
+    .loader-percentage {
+        font-size: 1.5rem;
+    }
+}
