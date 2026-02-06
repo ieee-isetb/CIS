@@ -296,7 +296,7 @@
 .loader-percentage {
     font-size: 2rem;
     font-weight: 700;
-    font-family: 'Inter', monospace;
+    font-family: 'IBM Plex Sans', sans-serif;
     background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

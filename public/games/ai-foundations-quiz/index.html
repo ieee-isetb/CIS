@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Foundations Quiz - IEEE CIS ISET Bizerte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="shortcut icon" href="/cis_section_logo.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Background Effects (Always Visible) -->
+    <div class="quiz-bg">
+        <div class="bg-grid"></div>
+        <div class="bg-glow bg-glow-1"></div>
+        <div class="bg-glow bg-glow-2"></div>
+        <div class="bg-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
+    <div id="app">
+        <!-- Access Code Screen -->
+        <div id="access-screen" class="screen active">
+            <div class="screen-container centered">
+                <div class="logo-section">
+                    <div class="orbit-container">
+                        <div class="orbit orbit-1"><span class="orbit-dot"></span></div>
+                        <div class="orbit orbit-2"><span class="orbit-dot"></span></div>
+                        <div class="quiz-logo">🧠</div>
+                    </div>
+                    <h1 class="screen-title">AI Foundations <span>Quiz</span></h1>
+                    <p class="screen-subtitle">IEEE CIS ISET Bizerte • Feb 7, 2026</p>
+                </div>
+                
+                <form id="access-form" class="cis-form">
+                    <div class="input-group">
+                        <div class="input-icon">🔑</div>
+                        <input type="text" id="accessCode" placeholder="Enter access code" autocomplete="off">
+                        <div class="input-line"></div>
+                    </div>
+                    <span class="error-msg" id="access-error"></span>
+                    <button type="submit" class="cis-btn primary">
+                        <span class="btn-text">Enter Quiz</span>
+                        <span class="btn-icon">→</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                </form>
+                
+                <a href="../../" class="back-link">
+                    <span>←</span> Back to CIS Website
+                </a>
+            </div>
+        </div>
+
+        <!-- Participant Name Screen -->
+        <div id="name-screen" class="screen">
+            <div class="screen-container centered">
+                <div class="logo-section">
+                    <div class="avatar-circle">
+                        <span id="avatar-preview">?</span>
+                    </div>
+                    <h1 class="screen-title">Join the <span>Challenge</span></h1>
+                    <p class="screen-subtitle">Enter your name to participate</p>
+                </div>
+                
+                <form id="name-form" class="cis-form">
+                    <div class="input-group">
+                        <div class="input-icon">👤</div>
+                        <input type="text" id="playerName" placeholder="Your name" maxlength="30" autocomplete="off">
+                        <div class="input-line"></div>
+                    </div>
+                    <span class="error-msg" id="name-error"></span>
+                    <button type="submit" class="cis-btn primary">
+                        <span class="btn-text">Join Waiting Room</span>
+                        <span class="btn-icon">→</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Waiting Room Screen -->
+        <div id="waiting-screen" class="screen">
+            <div class="screen-container centered">
+                <div class="waiting-content">
+                    <div class="waiting-logo">
+                        <div class="orbit-container large">
+                            <div class="orbit orbit-1 slow"><span class="orbit-dot"></span></div>
+                            <div class="orbit orbit-2 slow"><span class="orbit-dot"></span></div>
+                            <div class="orbit orbit-3 slow"><span class="orbit-dot"></span></div>
+                            <div class="waiting-icon">⏳</div>
+                        </div>
+                    </div>
+                    
+                    <h1 class="screen-title">Waiting for <span>Admin</span></h1>
+                    <p class="screen-subtitle">The quiz will begin shortly</p>
+                    
+                    <div class="waiting-player-card">
+                        <div class="player-avatar" id="waiting-avatar">P</div>
+                        <div class="player-details">
+                            <span class="player-name" id="waiting-player-name">Player</span>
+                            <span class="player-status">Ready to play</span>
+                        </div>
+                        <div class="ready-badge">✓ Ready</div>
+                    </div>
+                    
+                    <div class="waiting-stats">
+                        <div class="waiting-stat">
+                            <span class="stat-value" id="waiting-count">0</span>
+                            <span class="stat-label">Players Waiting</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pulse-loader">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring"></div>
+                    </div>
+                    
+                    <p class="waiting-hint">Get ready! Questions will appear automatically</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="header-left">
+                    <div class="player-badge">
+                        <div class="player-avatar small" id="player-avatar">P</div>
+                        <span id="player-display-name">Player</span>
+                    </div>
+                </div>
+                <div class="header-center">
+                    <div class="question-counter">
+                        <span id="current-q">1</span>
+                        <span class="separator">/</span>
+                        <span id="total-q">10</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="score-badge">
+                        <span class="score-icon">⭐</span>
+                        <span id="current-score">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            
+            <div class="quiz-content">
+                <div class="question-card" id="question-card">
+                    <!-- Question content loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <div class="screen-container centered">
+                <div class="results-content">
+                    <div class="trophy-container">
+                        <div class="trophy-glow"></div>
+                        <div class="trophy-icon">🏆</div>
+                    </div>
+                    
+                    <h1 class="screen-title">Quiz <span>Complete!</span></h1>
+                    <p class="result-name" id="result-player-name">Player</p>
+                    
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <svg class="score-ring" viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="54"/>
+                                <circle class="ring-fill" id="score-ring" cx="60" cy="60" r="54"/>
+                            </svg>
+                            <div class="score-inner">
+                                <span class="score-number" id="final-score">0</span>
+                                <span class="score-max">/115</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button class="cis-btn primary" id="view-scoreboard-btn">
+                            <span class="btn-text">View Leaderboard</span>
+                            <span class="btn-icon">📊</span>
+                        </button>
+                        <button class="cis-btn secondary" id="play-again-btn">
+                            <span class="btn-text">Play Again</span>
+                            <span class="btn-icon">↻</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard - Tournament Style -->
+        <div id="admin-screen" class="screen">
+            <div class="tournament-dashboard">
+                <!-- Top Banner -->
+                <div class="tournament-banner">
+                    <div class="banner-bg">
+                        <div class="banner-line"></div>
+                        <div class="banner-line"></div>
+                        <div class="banner-glow"></div>
+                    </div>
+                    <div class="banner-content">
+                        <div class="banner-left">
+                            <div class="tournament-badge admin">
+                                <span class="badge-icon">⚡</span>
+                            </div>
+                            <div class="banner-info">
+                                <span class="banner-role">ADMIN CONTROL</span>
+                                <h1 class="banner-title">AI FOUNDATIONS</h1>
+                            </div>
+                        </div>
+                        <div class="banner-center">
+                            <div class="match-status" id="game-status-text">
+                                <span class="status-dot"></span>
+                                <span class="status-text">STANDBY</span>
+                            </div>
+                        </div>
+                        <div class="banner-right">
+                            <button class="control-btn start" id="start-game-btn">
+                                <span class="ctrl-icon">▶</span>
+                                <span>START</span>
+                            </button>
+                            <button class="control-btn stop" id="stop-game-btn" style="display: none;">
+                                <span class="ctrl-icon">■</span>
+                                <span>STOP</span>
+                            </button>
+                            <button class="control-btn reset" id="clear-data-btn">
+                                <span class="ctrl-icon">↺</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="tournament-stats">
+                    <div class="t-stat">
+                        <div class="t-stat-value" id="total-participants">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill total"></div>
+                        </div>
+                        <div class="t-stat-label">PLAYERS</div>
+                    </div>
+                    <div class="t-stat">
+                        <div class="t-stat-value" id="waiting-count-admin">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill waiting"></div>
+                        </div>
+                        <div class="t-stat-label">IN LOBBY</div>
+                    </div>
+                    <div class="t-stat">
+                        <div class="t-stat-value" id="in-progress-count">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill playing"></div>
+                        </div>
+                        <div class="t-stat-label">PLAYING</div>
+                    </div>
+                    <div class="t-stat">
+                        <div class="t-stat-value" id="completed-count">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill done"></div>
+                        </div>
+                        <div class="t-stat-label">FINISHED</div>
+                    </div>
+                    <div class="t-stat featured">
+                        <div class="t-stat-value" id="top-score">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill top"></div>
+                        </div>
+                        <div class="t-stat-label">TOP SCORE</div>
+                    </div>
+                </div>
+
+                <!-- Main Panels -->
+                <div class="tournament-main">
+                    <!-- Players Panel -->
+                    <div class="tournament-panel players-panel">
+                        <div class="panel-title">
+                            <span class="title-accent"></span>
+                            <span>PLAYERS</span>
+                            <span class="live-indicator">LIVE</span>
+                        </div>
+                        <div class="players-list" id="participants-list">
+                            <div class="empty-state-tournament">
+                                <span class="empty-icon">👥</span>
+                                <span>Awaiting challengers...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leaderboard Panel -->
+                    <div class="tournament-panel leaderboard-panel">
+                        <div class="panel-title">
+                            <span class="title-accent"></span>
+                            <span>RANKINGS</span>
+                        </div>
+                        <div class="rankings-list" id="admin-leaderboard">
+                            <div class="empty-state-tournament">
+                                <span class="empty-icon">🏆</span>
+                                <span>No rankings yet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Officer View - Tournament Style -->
+        <div id="officer-screen" class="screen">
+            <div class="tournament-dashboard officer-mode">
+                <!-- Top Banner -->
+                <div class="tournament-banner">
+                    <div class="banner-bg">
+                        <div class="banner-line"></div>
+                        <div class="banner-line"></div>
+                        <div class="banner-glow"></div>
+                    </div>
+                    <div class="banner-content">
+                        <div class="banner-left">
+                            <div class="tournament-badge officer">
+                                <span class="badge-icon">👁</span>
+                            </div>
+                            <div class="banner-info">
+                                <span class="banner-role">SPECTATOR MODE</span>
+                                <h1 class="banner-title">AI FOUNDATIONS</h1>
+                            </div>
+                        </div>
+                        <div class="banner-center">
+                            <div class="match-status" id="officer-game-status">
+                                <span class="status-dot"></span>
+                                <span class="status-text">STANDBY</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="tournament-stats compact">
+                    <div class="t-stat">
+                        <div class="t-stat-value" id="officer-total-participants">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill total"></div>
+                        </div>
+                        <div class="t-stat-label">TOTAL PLAYERS</div>
+                    </div>
+                    <div class="t-stat">
+                        <div class="t-stat-value" id="officer-completed-count">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill done"></div>
+                        </div>
+                        <div class="t-stat-label">COMPLETED</div>
+                    </div>
+                    <div class="t-stat featured">
+                        <div class="t-stat-value" id="officer-top-score">0</div>
+                        <div class="t-stat-bar">
+                            <div class="t-stat-fill top"></div>
+                        </div>
+                        <div class="t-stat-label">HIGH SCORE</div>
+                    </div>
+                </div>
+
+                <!-- Main Panel - Full Width Leaderboard -->
+                <div class="tournament-main full">
+                    <div class="tournament-panel leaderboard-panel full-height">
+                        <div class="panel-title">
+                            <span class="title-accent"></span>
+                            <span>LIVE RANKINGS</span>
+                            <span class="live-indicator">LIVE</span>
+                        </div>
+                        <div class="rankings-list scrollable" id="officer-leaderboard">
+                            <div class="empty-state-tournament">
+                                <span class="empty-icon">🏆</span>
+                                <span>Waiting for results...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scoreboard Screen -->
+        <div id="scoreboard-screen" class="screen">
+            <div class="scoreboard-container">
+                <div class="scoreboard-header">
+                    <h1>🏆 Leaderboard</h1>
+                    <p>AI Foundations Quiz</p>
+                </div>
+                
+                <div class="your-rank" id="your-rank-card" style="display: none;">
+                    <div class="rank-medal" id="your-rank">-</div>
+                    <div class="rank-details">
+                        <span class="rank-label">Your Position</span>
+                        <span class="rank-name" id="your-rank-name">-</span>
+                    </div>
+                    <div class="rank-score" id="your-rank-score">0</div>
+                </div>
+                
+                <div class="scores-list" id="scores-list">
+                    <div class="empty-state">No scores yet</div>
+                </div>
+                
+                <button class="cis-btn secondary" id="back-home-btn">
+                    <span class="btn-icon">←</span>
+                    <span class="btn-text">Back to Home</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getDatabase, ref, set, push, get, onValue, update, remove } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyB4UYdCDlfzN6V-tIIZ8ep77oXXI0HNOnA",
+            authDomain: "cis-ieee.firebaseapp.com",
+            projectId: "cis-ieee",
+            storageBucket: "cis-ieee.firebasestorage.app",
+            messagingSenderId: "829182211152",
+            appId: "1:829182211152:web:e79bd39ffa33884b43cd55",
+            measurementId: "G-93NL0QGTKK",
+            databaseURL: "https://cis-ieee-default-rtdb.europe-west1.firebasedatabase.app"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        
+        // Expose to global scope for quiz.js
+        window.firebaseDB = { db, ref, set, push, get, onValue, update, remove };
+    </script>
+    <script src="quiz.js" type="module"></script>
+</body>
+</html>

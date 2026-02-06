@@ -8,36 +8,19 @@
 import { useState, useEffect } from "react";
 import "./GamesCIS.css";
 
-/* 
- * Games Configuration
- * Add games here when available during events/hackathons
- * Format: { id, title, description, thumbnail, url, category, isActive }
- * 
- * Example:
- * {
- *     id: "quiz-ai-basics",
- *     title: "AI Basics Quiz",
- *     description: "Test your knowledge on artificial intelligence fundamentals",
- *     thumbnail: "/games/quiz-ai/thumbnail.png",
- *     url: "/games/quiz-ai/index.html",
- *     category: "Workshop",
- *     isActive: true
- * }
- */
+
 const games = [
     // Add games here during events
     // Games will appear automatically when added to this array
-    // 
-    // Example (uncomment and modify):
-    // {
-    //     id: "tic-tac-toe",
-    //     title: "Tic Tac Toe",
-    //     description: "Classic two-player game. Challenge a friend!",
-    //     thumbnail: "https://img.icons8.com/color/200/tic-tac-toe.png",
-    //     url: "/games/tic-tac-toe/index.html",
-    //     category: "Classic",
-    //     isActive: true
-    // }
+    {
+        id: "ai-foundations-quiz",
+        title: "AI Foundations",
+        description: "Test your knowledge on AI basics!",
+        thumbnail: "/events/Ai_Foundation_Workshop/AiFoundationWorkshop.png",
+        url: "/games/ai-foundations-quiz/index.html",
+        category: "Workshop",
+        isActive: true
+    }
 ];
 
 function GamesCIS({ isOpen, onClose }) {

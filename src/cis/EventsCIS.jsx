@@ -1,19 +1,20 @@
-/* 
- * REDESIGNED: Complete rewrite of EventsCIS
- * - Removed: StarsBG animated background component
- * - Removed: SlideShow component with auto-sliding images
- * - Added: Static card grid with filter tabs by category
- * - Added: Image hover overlays and "Learn More" buttons
- * - Changed: From slideshow to filterable grid like reference site
- * - Added: Modal popup to view event details when clicking on an event
- * - Added: Image gallery navigation in modal
- * - Added: Loading state for images with smooth transitions
- */
-import { useState, useEffect, useCallback } from "react";
+
+import { useState, useCallback } from "react";
 import "./EventsCIS.css";
 
 /* Changed: Events now have images array for gallery navigation */
 const events = [
+    {
+        title: "Foundations of AI Workshop",
+        date: "Feb 7, 2026",
+        isUpcoming: true,
+        description: "Join us for an immersive workshop covering the fundamentals of Artificial Intelligence. Learn about machine learning, neural networks, and hands-on AI applications. Perfect for beginners and intermediate learners!",
+        images: [
+            "/events/Ai_Foundation_Workshop/AiFoundationWorkshop.png"
+        ],
+        category: "Workshop",
+        hasQuiz: true
+    },
     {
         title: "AI and the Art of Time Mastery",
         date: "2025",
@@ -223,7 +224,7 @@ function EventsCIS() {
                 <div className="events-grid">
                     {filteredEvents.map((event, index) => (
                         /* New: Each event is now a card with image and content */
-                        <div key={index} className="event-card" onClick={() => openEventModal(event)}>
+                        <div key={index} className={`event-card ${event.isUpcoming ? 'upcoming' : ''}`} onClick={() => openEventModal(event)}>
                             <div className="event-image">
                                 <img 
                                     src={event.images[0]} 
@@ -234,10 +235,13 @@ function EventsCIS() {
                                 {/* New: Category badge overlay on image */}
                                 <div className="event-overlay">
                                     <span className="event-category">{event.category}</span>
+                                    {event.isUpcoming && <span className="upcoming-badge">Upcoming Event</span>}
                                 </div>
                             </div>
                             <div className="event-content">
-                                <span className="event-date">{event.date}</span>
+                                <span className={`event-date ${event.isUpcoming ? 'upcoming-date' : ''}`}>
+                                    {event.isUpcoming ? `📅 ${event.date}` : event.date}
+                                </span>
                                 <h3 className="event-title">{event.title}</h3>
                                 <p className="event-description">{event.description}</p>
                                 {/* New: Learn More button with arrow icon */}
