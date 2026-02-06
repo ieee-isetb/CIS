@@ -45,7 +45,7 @@ function FooterCIS() {
                     <div className="footer-brand">
                         <img src={cis_logo} alt="IEEE CIS Logo" className="footer-logo" />
                         <p className="footer-description">
-                            We are a student-led club that belongs to the Institute of Electrical and 
+                            We are a student-led Chapter that belongs to the Institute of Electrical and 
                             Electronics Engineering (IEEE) Computational Intelligence Society—a world-leading 
                             organization dedicated to computational intelligence and technology.
                         </p>

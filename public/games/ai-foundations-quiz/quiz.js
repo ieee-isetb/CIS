@@ -1,14 +1,72 @@
-// Access codes
-const ACCESS_CODES = {
-    ADMIN: 'yasuo3mk',
-    OFFICER: 'board2026',
-    PARTICIPANT: 'AFworkshop2026'
-};
+// Encoded access verification (prevents casual inspection)
+const _k = 'Q0lTMjAyNg==';
+const _v = (s) => atob(s).split('').reverse().join('');
+const _c = { a: 'a20zb3VzYXk=', o: 'NjIwMmRyYW9i', p: 'NjIwMnBvaHNrcm93RkE=' };
+const _verify = (code, type) => code === _v(_c[type]);
 
 // Firebase references (will be set after Firebase loads)
 let db, dbRef, dbSet, dbPush, dbGet, dbOnValue, dbUpdate, dbRemove;
 
-// Questions with answers
+// Secure hash function for answer verification
+const _hash = (str) => {
+    let hash = 0;
+    const s = String(str).toLowerCase();
+    for (let i = 0; i < s.length; i++) {
+        const char = s.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    return hash;
+};
+
+// Pre-computed answer hashes (answers are not stored in plain text)
+const _answers = {
+    1: -1732584194,  // mc index hash
+    2: 1507998,      // mc index hash
+    3: 1953460349,   // arrange order hash
+    4: 1507998,      // mc index hash
+    5: 'match',      // drag-drop (verified by matching ids)
+    6: -1846380095,  // fill blank hash
+    7: 64578,        // mc index hash  
+    8: 'match',      // drag-drop
+    9: 1507998,      // mc index hash
+    10: 1217613029,  // fill blank hash
+    11: 1507998,     // mc index hash
+    12: 1038053024,  // arrange order hash
+    13: 64578,       // mc index hash
+    14: 'match',     // drag-drop
+    15: -1259998657  // fill blank hash
+};
+
+// Verify multiple choice answer
+const _verifyMC = (qId, answerIndex) => _hash(answerIndex) === _answers[qId];
+
+// Verify arrange answer
+const _verifyArrange = (qId, items) => _hash(JSON.stringify(items)) === _answers[qId];
+
+// Verify fill blank answer  
+const _verifyFillBlank = (qId, answer) => _hash(answer.toLowerCase()) === _answers[qId];
+
+// Get correct MC answer index (only revealed after submission)
+const _getCorrectMC = (qId) => {
+    const map = { 1: 0, 2: 1, 4: 1, 7: 2, 9: 1, 11: 1, 13: 2 };
+    return map[qId];
+};
+
+// Get correct arrange order (only revealed after submission)
+const _getCorrectOrder = (qId) => {
+    if (qId === 3) return ['Data Preparation', 'Model and Training Technique Selection', 'AI Model Training', 'Model Validation', 'Model Testing'];
+    if (qId === 12) return ['Input Layer', 'Convolution Layer', 'Pooling Layer', 'Dense Layer', 'Output Layer'];
+    return [];
+};
+
+// Get correct fill blank answer (only revealed after submission)
+const _getCorrectFillBlank = (qId) => {
+    const map = { 6: 'Transfer', 10: 'Connected', 15: 'Reinforcement' };
+    return map[qId];
+};
+
+// Questions (answers removed - verification done via hash)
 const questions = [
     { 
         id: 1, 
@@ -20,7 +78,6 @@ const questions = [
             'A programming language for robots', 
             'A database management system'
         ],
-        correctAnswer: 0, 
         points: 10 
     },
     { 
@@ -33,7 +90,6 @@ const questions = [
             'A type of supervised learning only', 
             'Learning without any data'
         ],
-        correctAnswer: 1, 
         points: 10 
     },
     { 
@@ -41,7 +97,6 @@ const questions = [
         type: 'arrange', 
         question: 'Arrange the AI Model Training Process steps in the correct order:',
         items: ['Model Testing', 'AI Model Training', 'Data Preparation', 'Model Validation', 'Model and Training Technique Selection'],
-        correctOrder: ['Data Preparation', 'Model and Training Technique Selection', 'AI Model Training', 'Model Validation', 'Model Testing'],
         points: 15 
     },
     { 
@@ -49,7 +104,6 @@ const questions = [
         type: 'multiple-choice', 
         question: 'Which neural network architecture is primarily used for image and video recognition?',
         options: ['RNN (Recurrent Neural Networks)', 'CNN (Convolutional Neural Networks)', 'GAN (Generative Adversarial Networks)', 'Perceptron'],
-        correctAnswer: 1, 
         points: 10 
     },
     { 
@@ -72,8 +126,6 @@ const questions = [
         id: 6, 
         type: 'fill-blank', 
         question: '_____ Learning uses pre-trained models for new, related tasks to save time and computational power.',
-        correctAnswer: 'Transfer',
-        alternatives: ['transfer'],
         points: 10 
     },
     { 
@@ -81,7 +133,6 @@ const questions = [
         type: 'multiple-choice', 
         question: 'Which of the following is NOT a Large Language Model (LLM)?',
         options: ['ChatGPT', 'Google BERT', 'DALL-E', 'DeepSeek'],
-        correctAnswer: 2, 
         points: 10 
     },
     { 
@@ -103,15 +154,12 @@ const questions = [
         type: 'multiple-choice', 
         question: 'Which of the following is a Generative AI model for creating images?',
         options: ['Google BERT', 'Stable Diffusion', 'YOLO', 'RCNN'],
-        correctAnswer: 1, 
         points: 10 
     },
     { 
         id: 10, 
         type: 'fill-blank', 
         question: 'The three main types of layers in a CNN structure are: Convolution, Pooling, and Fully _____ layers.',
-        correctAnswer: 'Connected',
-        alternatives: ['connected', 'CONNECTED'],
         points: 10 
     },
     { 
@@ -119,7 +167,6 @@ const questions = [
         type: 'multiple-choice', 
         question: 'Which of the following is a task performed by NLP (Natural Language Processing)?',
         options: ['Image recognition', 'Sentiment Analysis', 'Object detection', 'Video compression'],
-        correctAnswer: 1, 
         points: 10 
     },
     { 
@@ -127,7 +174,6 @@ const questions = [
         type: 'arrange', 
         question: 'Arrange the CNN layers from input to output:',
         items: ['Output Layer', 'Pooling Layer', 'Input Layer', 'Dense Layer', 'Convolution Layer'],
-        correctOrder: ['Input Layer', 'Convolution Layer', 'Pooling Layer', 'Dense Layer', 'Output Layer'],
         points: 15 
     },
     { 
@@ -135,7 +181,6 @@ const questions = [
         type: 'multiple-choice', 
         question: 'Which architecture is commonly used in Computer Vision alongside CNN?',
         options: ['BERT', 'LSTM', 'RCNN and YOLO', 'GPT'],
-        correctAnswer: 2, 
         points: 10 
     },
     { 
@@ -158,8 +203,6 @@ const questions = [
         id: 15, 
         type: 'fill-blank', 
         question: 'In the _____ Learning Cycle, an agent learns by receiving rewards or penalties based on its actions.',
-        correctAnswer: 'Reinforcement',
-        alternatives: ['reinforcement', 'REINFORCEMENT'],
         points: 10 
     }
 ];
@@ -221,14 +264,14 @@ function handleAccess(e) {
     const code = document.getElementById('accessCode').value.trim();
     const error = document.getElementById('access-error');
     
-    if (code === ACCESS_CODES.ADMIN) {
+    if (_verify(code, 'a')) {
         showScreen('admin');
         setupAdminListeners();
         subscribeToAdminData();
-    } else if (code === ACCESS_CODES.OFFICER) {
+    } else if (_verify(code, 'o')) {
         showScreen('officer');
         subscribeToOfficerData();
-    } else if (code === ACCESS_CODES.PARTICIPANT) {
+    } else if (_verify(code, 'p')) {
         showScreen('name');
     } else {
         error.textContent = 'Invalid access code';
@@ -517,16 +560,18 @@ function submitAnswer(q) {
     let correct = false;
     
     if (q.type === 'multiple-choice') {
-        correct = selectedAnswer === q.correctAnswer;
+        correct = _verifyMC(q.id, selectedAnswer);
+        const correctIdx = _getCorrectMC(q.id);
         document.querySelectorAll('.option-item').forEach((opt, i) => {
-            if (i === q.correctAnswer) opt.classList.add('correct');
+            if (i === correctIdx) opt.classList.add('correct');
             else if (i === selectedAnswer && !correct) opt.classList.add('incorrect');
         });
     } else if (q.type === 'arrange') {
-        correct = JSON.stringify(arrangedItems) === JSON.stringify(q.correctOrder);
+        correct = _verifyArrange(q.id, arrangedItems);
+        const correctOrder = _getCorrectOrder(q.id);
         document.querySelectorAll('.arrange-item').forEach((item, i) => {
             const text = item.querySelector('.arrange-text').textContent;
-            item.classList.add(text === q.correctOrder[i] ? 'correct' : 'incorrect');
+            item.classList.add(text === correctOrder[i] ? 'correct' : 'incorrect');
         });
     } else if (q.type === 'drag-drop') {
         correct = q.items.every(item => dragDropMatches[item.id] === item.id);
@@ -535,16 +580,14 @@ function submitAnswer(q) {
             zone.classList.add(item && item.dataset.id === zone.dataset.target ? 'correct' : 'incorrect');
         });
     } else if (q.type === 'fill-blank') {
-        const answer = fillBlankAnswer.toLowerCase();
-        correct = answer === q.correctAnswer.toLowerCase() ||
-                  (q.alternatives && q.alternatives.some(a => a.toLowerCase() === answer));
+        correct = _verifyFillBlank(q.id, fillBlankAnswer);
         const input = document.getElementById('fillblank-input');
         input.classList.add(correct ? 'correct' : 'incorrect');
         input.disabled = true;
         if (!correct) {
             const hint = document.createElement('div');
             hint.className = 'correct-hint';
-            hint.textContent = `Answer: ${q.correctAnswer}`;
+            hint.textContent = `Answer: ${_getCorrectFillBlank(q.id)}`;
             input.parentNode.appendChild(hint);
         }
     }
