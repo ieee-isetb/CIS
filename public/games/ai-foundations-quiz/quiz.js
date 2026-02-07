@@ -19,86 +19,45 @@ const _hash = (str) => {
     return hash;
 };
 
-// Pre-computed answer hashes (answers are not stored in plain text)
 const _answers = {
-    1: -1732584194,  // mc index hash
-    2: 1507998,      // mc index hash
-    3: 1953460349,   // arrange order hash
-    4: 1507998,      // mc index hash
-    5: 'match',      // drag-drop (verified by matching ids)
-    6: -1846380095,  // fill blank hash
-    7: 64578,        // mc index hash  
-    8: 'match',      // drag-drop
-    9: 1507998,      // mc index hash
-    10: 1217613029,  // fill blank hash
-    11: 1507998,     // mc index hash
-    12: 1038053024,  // arrange order hash
-    13: 64578,       // mc index hash
-    14: 'match',     // drag-drop
-    15: -1259998657  // fill blank hash
+    4: 1507998,      
+    5: 'match',     
+    6: -1846380095,  
+    7: 64578,          
+    8: 'match',     
+    9: 1507998,      
+    10: 1217613029,  
+    11: 1507998,     
+    12: 1038053024,  
+    13: 64578,       
+    14: 'match',    
+    15: -1259998657  
 };
 
-// Verify multiple choice answer
 const _verifyMC = (qId, answerIndex) => _hash(answerIndex) === _answers[qId];
 
-// Verify arrange answer
 const _verifyArrange = (qId, items) => _hash(JSON.stringify(items)) === _answers[qId];
 
-// Verify fill blank answer  
 const _verifyFillBlank = (qId, answer) => _hash(answer.toLowerCase()) === _answers[qId];
 
-// Get correct MC answer index (only revealed after submission)
 const _getCorrectMC = (qId) => {
     const map = { 1: 0, 2: 1, 4: 1, 7: 2, 9: 1, 11: 1, 13: 2 };
     return map[qId];
 };
 
-// Get correct arrange order (only revealed after submission)
 const _getCorrectOrder = (qId) => {
     if (qId === 3) return ['Data Preparation', 'Model and Training Technique Selection', 'AI Model Training', 'Model Validation', 'Model Testing'];
     if (qId === 12) return ['Input Layer', 'Convolution Layer', 'Pooling Layer', 'Dense Layer', 'Output Layer'];
     return [];
 };
 
-// Get correct fill blank answer (only revealed after submission)
 const _getCorrectFillBlank = (qId) => {
     const map = { 6: 'Transfer', 10: 'Connected', 15: 'Reinforcement' };
     return map[qId];
 };
 
-// Questions (answers removed - verification done via hash)
 const questions = [
-    { 
-        id: 1, 
-        type: 'multiple-choice', 
-        question: 'What is Machine Learning?',
-        options: [
-            'A subset of AI focused on building systems that learn from data', 
-            'A type of computer hardware', 
-            'A programming language for robots', 
-            'A database management system'
-        ],
-        points: 10 
-    },
-    { 
-        id: 2, 
-        type: 'multiple-choice', 
-        question: 'What is Deep Learning?',
-        options: [
-            'Learning that takes a long time', 
-            'A subfield of machine learning that uses neural networks with many layers', 
-            'A type of supervised learning only', 
-            'Learning without any data'
-        ],
-        points: 10 
-    },
-    { 
-        id: 3, 
-        type: 'arrange', 
-        question: 'Arrange the AI Model Training Process steps in the correct order:',
-        items: ['Model Testing', 'AI Model Training', 'Data Preparation', 'Model Validation', 'Model and Training Technique Selection'],
-        points: 15 
-    },
+    
     { 
         id: 4, 
         type: 'multiple-choice', 
