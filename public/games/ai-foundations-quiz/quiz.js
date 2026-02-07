@@ -30,8 +30,6 @@ const _answers = {
     11: 1507998,     
     12: 1038053024,  
     13: 64578,       
-    14: 'match',    
-    15: -1259998657  
 };
 
 const _verifyMC = (qId, answerIndex) => _hash(answerIndex) === _answers[qId];
@@ -142,28 +140,6 @@ const questions = [
         options: ['BERT', 'LSTM', 'RCNN and YOLO', 'GPT'],
         points: 10 
     },
-    { 
-        id: 14, 
-        type: 'drag-drop', 
-        question: 'Match each Generative AI tool with its creator:',
-        items: [
-            { id: 'dalle', label: 'DALL-E' }, 
-            { id: 'firefly', label: 'Firefly' }, 
-            { id: 'sd', label: 'Stable Diffusion' }
-        ],
-        targets: [
-            { id: 'dalle', description: 'OpenAI' }, 
-            { id: 'firefly', description: 'Adobe' }, 
-            { id: 'sd', description: 'Stability AI' }
-        ],
-        points: 15 
-    },
-    { 
-        id: 15, 
-        type: 'fill-blank', 
-        question: 'In the _____ Learning Cycle, an agent learns by receiving rewards or penalties based on its actions.',
-        points: 10 
-    }
 ];
 
 // State
