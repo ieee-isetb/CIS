@@ -7,7 +7,6 @@ const events = [
     {
         title: "Foundations of AI Workshop",
         date: "Feb 7, 2026",
-        isUpcoming: true,
         description: "Join us for an immersive workshop covering the fundamentals of Artificial Intelligence. Learn about machine learning, neural networks, and hands-on AI applications. Perfect for beginners and intermediate learners!",
         images: [
             "/events/Ai_Foundation_Workshop/AiFoundationWorkshop.png"
