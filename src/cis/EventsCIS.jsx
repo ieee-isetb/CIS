@@ -5,6 +5,15 @@ import "./EventsCIS.css";
 /* Changed: Events now have images array for gallery navigation */
 const events = [
     {
+        title: "Machine Learning Hands-on practice",
+        date: "Feb 28, 2026",
+        description: "Dive into the world of Machine Learning with our hands-on practice session. Explore algorithms, data preprocessing, and real-world applications in an interactive environment.",
+        images: [
+            "/events/Machine_Learning_Hands_on_practice/machinelearning.jpg",
+        ],
+        category: "Workshop"
+    },
+    {
         title: "Foundations of AI Workshop",
         date: "Feb 7, 2026",
         description: "Join us for an immersive workshop covering the fundamentals of Artificial Intelligence. Learn about machine learning, neural networks, and hands-on AI applications. Perfect for beginners and intermediate learners!",
