@@ -73,6 +73,16 @@ function TeamCIS() {
             photo: "/team/karim.jpg"
         },
         {
+            role: "Vice-Chair",
+            name: "Emna Mehdaoui",
+            description: "Assisting the Chair in managing chapter activities and initiatives to foster growth and engagement.",
+            instagram: "",
+            facebook: "https://www.facebook.com/emna.mehdaoui.2025",
+            linkedin: "https://www.linkedin.com/in/emna-mehdaoui-38131832a/",
+            email: "emnamehdaoui@ieee.org",
+            photo: "/team/emna.jpeg"
+        },
+        {
             role: "Secretary",
             name: "May Jaballah",
             description: "Managing communications and organizational activities for the chapter.",

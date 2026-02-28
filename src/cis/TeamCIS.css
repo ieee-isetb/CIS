@@ -99,12 +99,12 @@
     margin-bottom: 4rem;
 }
 
-/* Team Grid */
+/* Team Grid — 4 columns so all members share one row */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(4, 1fr); /* ← changed from repeat(3, 1fr) */
+    gap: 1.5rem;                           /* ← slightly tighter gap for 4 cards */
+    max-width: 1200px;                     /* ← widened to accommodate 4 cards */
     margin: 0 auto;
     justify-items: center;
 }
@@ -115,6 +115,7 @@
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.4s ease;
+    width: 100%;
 }
 
 .team-card:hover {
@@ -211,7 +212,7 @@
 /* Responsive */
 @media screen and (max-width: 1200px) {
     .team-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2×2 on medium screens */
     }
     
     .founders-grid {
